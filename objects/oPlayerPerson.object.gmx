@@ -95,7 +95,6 @@ if collision_point( x + sprite_width/2, y + sprite_height + ySpeed, oWall, false
         jumpCount = 0;
     }
 }
-
 // Checks if the player is inside a wall below them on this step. If they are, then they are placed on top of the wall instead.
 if collision_point( x + sprite_width/2, y + sprite_height, oWall, false, true )
 {
@@ -147,7 +146,7 @@ else if collision_line ( x + sprite_width/2, y + sprite_height + 1, x + sprite_w
     // Move left
     // If the player is pressing Left then they move left
     // else if keyboard_check(vk_left) and !collision_rectangle( x - speedWalk, y + (sprite_height/2), x - speedWalk, y + (sprite_height/2), oWall, false, true )
-    else if keyboard_check(vk_left) and !collision_rectangle( x + sprite_width/4, y + (sprite_height/2), x + sprite_width/4, y + (sprite_height/2), oWall, false, true )
+    else if keyboard_check(vk_left) and !collision_line( x, y + sprite_height/2, x - speedWalk, y + sprite_height/2, oWall, false, true )
     {
         xSpeed = -speedWalk;
         ySpeed = 0;
@@ -157,7 +156,7 @@ else if collision_line ( x + sprite_width/2, y + sprite_height + 1, x + sprite_w
     
     // Move Right
     // If the player is pressing Right then they move right
-    else if keyboard_check(vk_right) and !collision_rectangle( x + sprite_width - sprite_width/4, y + (sprite_height/2), x + sprite_width  - sprite_width/4, y + (sprite_height/2), oWall, false, true )
+    else if keyboard_check(vk_right) and !collision_rectangle( x + sprite_width, y + sprite_height/2, x +sprite_width + speedWalk, y + sprite_height/2, oWall, false, true )
     {
         xSpeed = +speedWalk;
         ySpeed = 0;

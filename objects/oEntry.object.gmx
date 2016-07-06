@@ -26,12 +26,23 @@
           <argument>
             <kind>1</kind>
             <string>/// Level generation
-globalvar exitSide;
-exitSide = 0;
 
 event_inherited();
 
-scrLevelGen(tileAmount, c_orange);
+if global.exitSide = 0
+{
+    scrLevelGenR(tileAmount, c_orange);
+}
+
+else if global.exitSide = 1
+{
+    scrLevelGen(tileAmount, c_orange);
+}
+
+else if global.exitSide = 2
+{
+    scrLevelGenM(tileAmount, c_orange);
+}
 </string>
           </argument>
         </arguments>
@@ -74,12 +85,12 @@ if instance_exists(oPlayerPerson) == true
     if oPlayerPerson.x &lt; 32
     {
         room_goto(rScroll);
-        exitSide = 0;
+        global.exitSide = 0;
     }
-    if oPlayerPerson.x &gt; room_width - 32
+    if oPlayerPerson.x &gt; room_width - 64
     {
         room_goto(rScroll);
-        exitSide = 1;
+        global.exitSide = 1;
     }
 }
 

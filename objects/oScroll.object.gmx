@@ -29,11 +29,11 @@
 
 event_inherited();
 
-if exitSide = 0
+if global.exitSide = 0
 {
     scrLevelGenR(tileAmount, c_blue);
 }
-else if exitSide = 1
+else if global.exitSide = 1
 {
     scrLevelGen(tileAmount, c_blue);
 }
@@ -90,27 +90,31 @@ if instance_exists(oPlayerPerson) == true
         view_xview = room_width - view_wview - 64;
     }
     
-    if exitSide = 0
+    if global.exitSide = 0
     {
-        if oPlayerPerson.x &gt; room_width - 32
+        if oPlayerPerson.x &gt; room_width - 64
         {
             room_goto(rEntry);
+            global.exitSide = 1;
         }
         if oPlayerPerson.x &lt; 32
         {
             room_goto(rPit);
+            global.exitSide = 0;
         }
     }
     
-    else if exitSide = 1
+    else if global.exitSide = 1
     {
-        if oPlayerPerson.x &gt; room_width - 32
+        if oPlayerPerson.x &gt; room_width - 64
         {
             room_goto(rPit);
+            global.exitSide = 1;
         }
         if oPlayerPerson.x &lt; 32
         {
             room_goto(rEntry);
+            global.exitSide = 0;
         }
     }
     /*
@@ -127,6 +131,10 @@ if instance_exists(oPlayerPerson) == true
         view_xview[0] = view_xview * 3;
     }
     */
+    if oPlayerPerson.x &gt;= oDoor.x and oPlayerPerson.x &lt;= oDoor.x + 32 and keyboard_check_pressed (vk_up)
+    {
+        room_goto(rPit);
+    }
 }
 
 // Respawn the player at the top if they go off the map.

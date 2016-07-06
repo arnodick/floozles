@@ -26,6 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>/// Variables
+
+globalvar exitSide;
+exitSide = 2;
 </string>
           </argument>
         </arguments>

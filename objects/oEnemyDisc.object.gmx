@@ -47,7 +47,7 @@ fallSpeed = 1;
 
 
 // Floozles reach above the bridge, and high enough the you can't jump over them.
-temp = random(20) - 10;
+temp = (irandom(10) - 5) * 2;
 hspeed = temp;
 
 vspeed = -26;

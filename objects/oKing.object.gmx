@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>/// Variables
+globalvar exitSide;
+global.exitSide = 2;
 </string>
           </argument>
         </arguments>
@@ -58,7 +60,7 @@ instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
 // Respawn the player at the top if they go off the map.
 if instance_exists(oPlayerPerson) == false
 {
-    instance_create (64, 288, oPlayerPerson);
+    instance_create (544, 288, oPlayerPerson);
 }
 
 // Moves player to next room when they fall down
@@ -66,10 +68,9 @@ if instance_exists(oPlayerPerson) == true
 {
     if oPlayerPerson.y &gt; 768
     {
-        room_goto(rPit);
+        room_goto(rEntry);
     }
 }
-
 </string>
           </argument>
         </arguments>
