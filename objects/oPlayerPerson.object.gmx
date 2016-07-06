@@ -36,7 +36,7 @@ bumpDelay = 0;
 bumpDelayMax = 4;
 
 speedWalk = 6;
-speedJump = 8;
+speedJump = 10;
 speedSlow = 1;
 
 imageFast = 0.3;
@@ -100,68 +100,32 @@ if collision_rectangle( x, y + sprite_height + 1, x + sprite_width, y + sprite_h
         audio_play_sound(sndJump5, 1, false);
     
         // If the player is pressing Left or Right when they jump, then their horizontal velocity is set to match the direction they're pressing.
-        if keyboard_check(vk_left) //and !collision_rectangle( x, y + (sprite_height/2), x, y + (sprite_height/2), oWall, false, true )
+        if keyboard_check(vk_left) and !collision_rectangle( x, y, x, y + sprite_height, oWall, false, true )
             xSpeed = -speedJump;
-        else if keyboard_check(vk_right) //and !collision_rectangle( x + sprite_width, y + (sprite_height/2), x + sprite_width, y + (sprite_height/2), oWall, false, true )
+        else if keyboard_check(vk_right) and !collision_rectangle( x + sprite_width, y, x + sprite_width, y + sprite_height, oWall, false, true )
             xSpeed = speedJump;
     }
     
     // Move left
     // If the player is pressing Left then they move left
-    else if keyboard_check(vk_left) //and !collision_rectangle( x, y + (sprite_height/2), x, y + (sprite_height/2), oWall, false, true )
+    else if keyboard_check(vk_left) and !collision_rectangle( x, y + (sprite_height/2), x, y + (sprite_height/2), oWall, false, true )
     {
-        if place_meeting(x - speedWalk, y, oWall)
-        {
-            x = other.x + 1;
-            xSpeed = 0;
-            
-            if bumpDelay &gt; 0
-            {
-                bumpDelay -= 1;
-            }
-            else
-            {
-                audio_play_sound(sndBump, 10, false);
-                bumpDelay = bumpDelayMax;
-            }
-        }
-        else
-        {
-            xSpeed = -speedWalk;
-            ySpeed = 0;
-            // Change the animation and speed it up
-            sprite_index = sPlayerPersonWalkLeft;
-            image_speed = imageFast; 
-        }
+        xSpeed = -speedWalk;
+        ySpeed = 0;
+        // Change the animation and speed it up
+        sprite_index = sPlayerPersonWalkLeft;
+        image_speed = imageFast; 
     }
     
     // Move Right
     // If the player is pressing Right then they move right
-    else if keyboard_check(vk_right) //and !collision_rectangle( x + sprite_width, y + (sprite_height/2), x + sprite_width, y + (sprite_height/2), oWall, false, true )
+    else if keyboard_check(vk_right) and !collision_rectangle( x + sprite_width, y + (sprite_height/2), x + sprite_width, y + (sprite_height/2), oWall, false, true )
     {
-        if place_meeting(x + speedWalk, y, oWall)
-        {
-            x = other.x - 1;
-            xSpeed = 0;
-            
-            if bumpDelay &gt; 0
-            {
-                bumpDelay -= 1;
-            }
-            else
-            {
-                audio_play_sound(sndBump, 10, false);
-                bumpDelay = bumpDelayMax;
-            }
-        }
-        else
-        {
-            xSpeed = +speedWalk;
-            ySpeed = 0;
-            // Change the animation and speed it up
-            sprite_index = sPlayerPersonWalkRight;
-            image_speed = imageFast; 
-        }
+        xSpeed = +speedWalk;
+        ySpeed = 0;
+        // Change the animation and speed it up
+        sprite_index = sPlayerPersonWalkRight;
+        image_speed = imageFast; 
     }
     
     // If the player presses nothing then they stay still.
