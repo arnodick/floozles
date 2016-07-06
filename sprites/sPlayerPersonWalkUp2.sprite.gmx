@@ -17,8 +17,8 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>26</width>
-  <height>26</height>
+  <width>20</width>
+  <height>20</height>
   <frames>
     <frame index="0">images\sPlayerPersonWalkUp2_0.png</frame>
     <frame index="1">images\sPlayerPersonWalkUp2_1.png</frame>
