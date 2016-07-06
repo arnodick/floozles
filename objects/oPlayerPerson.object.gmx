@@ -45,7 +45,7 @@ ySpeed = 0;
 xSpeed = 0;
 
 
-bumpOffset = 2;
+bumpOffset = sprite_width/4;
 otherSpeed = 0;
 </string>
           </argument>

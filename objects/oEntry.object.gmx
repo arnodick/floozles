@@ -38,7 +38,7 @@ tileAmount = (room_width - 64) / 64
 //tileArray[2] = bTile2;
 
 // Checks every incremement through 0 - 17 to either make a block at or leave blank the coordinate at i times 64.
-scrLevelGen(tileAmount, c_white);
+scrLevelGen(tileAmount);
 </string>
           </argument>
         </arguments>
