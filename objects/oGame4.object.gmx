@@ -37,10 +37,10 @@ tileArray[2] = bTile5;
 //tileArray[1] = bTile1;
 //tileArray[2] = bTile2;
 
-
+/*
 for (i = 1; i &lt; 17; i += 1)
 {
-    /*
+    
     if i == 8
     {
         blockCount = 0;
@@ -53,7 +53,7 @@ for (i = 1; i &lt; 17; i += 1)
         blockCount += 1;
         emptyCount = 0;
     }
-    else */
+    else 
     if irandom(1) == 1 and blockCount &lt; 2
     {
         if playerCreated = false
@@ -85,6 +85,7 @@ for (i = 1; i &lt; 17; i += 1)
         }
     }
 }
+*/
 </string>
           </argument>
         </arguments>
@@ -109,12 +110,12 @@ for (i = 1; i &lt; 17; i += 1)
             <kind>1</kind>
             <string>/// Game Settings
 
-
+/*
 if (random(20) &lt; 8)
 {
     instance_create (irandom(room_width), room_height - 64, oEnemyDisc)
 }
-
+*/
 
 // Deactivate objects outside of the view
 instance_deactivate_region(0, 0, room_width, room_height, false, true);

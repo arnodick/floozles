@@ -3,7 +3,7 @@
   <spriteName>sNpcPerson</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>3</depth>
   <persistent>0</persistent>
   <parentName>oPerson</parentName>
   <maskName>sNpcPerson</maskName>
@@ -36,6 +36,7 @@ speedWalk = irandom(12) - 6;
 fallSpeed = 2;
 
 bumpOffset = 8;
+floorOffset = 0;
 
 ySpeed = 0;
 xSpeed = speedWalk;
@@ -84,16 +85,16 @@ if collision_line( x + sprite_width/2, y, x + sprite_width/2, y + sprite_height/
 }
 
 // Checks where the player will be next step, given their falling speed and acceleration, and if they will be inside a wall below them then they are placed on top of the wall instead.
-if collision_point( x + sprite_width/2, y + sprite_height + ySpeed + fallSpeed, oWall, false, true ) and ySpeed &gt; 0
+if collision_point( x + sprite_width/2, y + sprite_height + ySpeed + fallSpeed - floorOffset, oWall, false, true ) and ySpeed &gt; 0
 {
-    y += (y + sprite_height)%32;
+    y += (y + sprite_height)%32 - floorOffset;
     // If the player just hit the ground this step, then play the landing sound effect.
 }
 
 // Checks if the player is inside a wall below them on this step. If they are, then they are placed on top of the wall instead.
-if collision_point( x + sprite_width/2, y + sprite_height, oWall, false, true )
+if collision_point( x + sprite_width/2, y + sprite_height - floorOffset, oWall, false, true )
 {
-    y -= (y + sprite_height)%32;
+    y -= (y + sprite_height)%32 + floorOffset;
 }
 
 // If the player is hit by a floozle, then they are bounced around.

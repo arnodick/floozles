@@ -34,7 +34,18 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
-    <background>background\bTile</background>
+    <background>background\bTile0</background>
+    <background>background\bTile3</background>
+    <background>background\background9</background>
+    <background>background\bTile5</background>
+    <background>background\bTile4</background>
+    <background>background\background11</background>
+    <background>background\background7</background>
+    <background>background\background12</background>
+    <background>background\background10</background>
+    <background>background\background8</background>
+    <background>background\bTile1</background>
+    <background>background\bTile2</background>
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
@@ -55,14 +66,14 @@
     <object>objects\oGame</object>
     <object>objects\oGame1</object>
     <object>objects\oGame2</object>
+    <object>objects\oGame4</object>
     <object>objects\oWall</object>
     <object>objects\oFM</object>
     <object>objects\oFM2</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room4</room>
-    <room>rooms\room3</room>
     <room>rooms\rPit</room>
+    <room>rooms\room3</room>
     <room>rooms\rTut</room>
     <room>rooms\rKing</room>
   </rooms>
