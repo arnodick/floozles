@@ -29,14 +29,7 @@
 
 event_inherited();
 
-if global.exitSide = 0
-{
-    scrLevelGenR(tileAmount, c_red);
-}
-else if global.exitSide = 1
-{
-    scrLevelGen(tileAmount, c_red);
-}
+scrLevelGen(tileAmount, c_red, global.exitSide, false);
 </string>
           </argument>
         </arguments>

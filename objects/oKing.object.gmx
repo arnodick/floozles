@@ -28,6 +28,7 @@
             <string>/// Variables
 globalvar exitSide;
 global.exitSide = 2;
+global.haveGun = false;
 </string>
           </argument>
         </arguments>

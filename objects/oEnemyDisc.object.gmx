@@ -27,8 +27,6 @@
             <kind>1</kind>
             <string>event_inherited();
 
-hp = 1;
-
 image_speed = 0.8;
 screenBottom = 1;
 
@@ -95,7 +93,6 @@ highfallSpeed = 3.4;
     instance_create(x, y, oFloozleDead);
     instance_destroy();
 }
-
 if y &lt; view_hview and screenBottom = 1
 {
     vspeed = highvSpeed;

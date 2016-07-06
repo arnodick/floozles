@@ -30,8 +30,10 @@
     <sprite>sprites\sWallMoving</sprite>
     <sprite>sprites\sFM</sprite>
     <sprite>sprites\sFM2</sprite>
+    <sprite>sprites\sFM3</sprite>
     <sprite>sprites\sWorm</sprite>
     <sprite>sprites\sDoor</sprite>
+    <sprite>sprites\sGun</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
@@ -43,8 +45,6 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scrLevelGen.gml</script>
-    <script>scripts\scrLevelGenR.gml</script>
-    <script>scripts\scrLevelGenM.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\oPerson</object>
@@ -71,17 +71,19 @@
     <object>objects\oFM</object>
     <object>objects\oFM2</object>
     <object>objects\oDoor</object>
+    <object>objects\oGun</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rKing</room>
     <room>rooms\rEntry</room>
     <room>rooms\rScroll</room>
     <room>rooms\rPit</room>
+    <room>rooms\rBullet</room>
     <room>rooms\rTut</room>
     <room>rooms\rtiletest</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41900.9962110995</constant>
+    <constant name="GM_build_date">41904.1315431944</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>

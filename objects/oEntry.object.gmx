@@ -29,20 +29,8 @@
 
 event_inherited();
 
-if global.exitSide = 0
-{
-    scrLevelGenR(tileAmount, c_orange);
-}
+scrLevelGen(tileAmount, c_orange, global.exitSide, false);
 
-else if global.exitSide = 1
-{
-    scrLevelGen(tileAmount, c_orange);
-}
-
-else if global.exitSide = 2
-{
-    scrLevelGenM(tileAmount, c_orange);
-}
 </string>
           </argument>
         </arguments>
