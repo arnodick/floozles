@@ -21,6 +21,8 @@
     <sprite>sprites\sPlayerPersonJumpCrouch</sprite>
     <sprite>sprites\sNpcPerson</sprite>
     <sprite>sprites\sEnemyDisc</sprite>
+    <sprite>sprites\sFloozle</sprite>
+    <sprite>sprites\sFloozleDead</sprite>
     <sprite>sprites\sPlayerShot</sprite>
     <sprite>sprites\sPlayerShot1</sprite>
     <sprite>sprites\sExplode</sprite>
@@ -39,6 +41,7 @@
     <object>objects\oPlayerPerson</object>
     <object>objects\oEnemy</object>
     <object>objects\oEnemyDisc</object>
+    <object>objects\oFloozleDead</object>
     <object>objects\oEnemyDiscStraight</object>
     <object>objects\oPlayerShot</object>
     <object>objects\oPlayerShotTail</object>
@@ -50,10 +53,10 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\room5</room>
-    <room>rooms\rLevel1</room>
     <room>rooms\room4</room>
-    <room>rooms\room3</room>
     <room>rooms\room2</room>
+    <room>rooms\room3</room>
+    <room>rooms\rLevel1</room>
     <room>rooms\room1</room>
   </rooms>
   <help>
