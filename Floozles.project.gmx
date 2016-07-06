@@ -39,6 +39,7 @@
     <object>objects\oPerson</object>
     <object>objects\oNpcPerson</object>
     <object>objects\oPlayerPerson</object>
+    <object>objects\oPlayerPersonxx</object>
     <object>objects\oEnemy</object>
     <object>objects\oEnemyDisc</object>
     <object>objects\oFloozleDead</object>
