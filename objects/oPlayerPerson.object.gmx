@@ -100,32 +100,68 @@ if collision_rectangle( x, y + sprite_height + 1, x + sprite_width, y + sprite_h
         audio_play_sound(sndJump5, 1, false);
     
         // If the player is pressing Left or Right when they jump, then their horizontal velocity is set to match the direction they're pressing.
-        if keyboard_check(vk_left) and !collision_rectangle( x, y + (sprite_height/2), x, y + (sprite_height/2), oWall, false, true )
+        if keyboard_check(vk_left) //and !collision_rectangle( x, y + (sprite_height/2), x, y + (sprite_height/2), oWall, false, true )
             xSpeed = -speedJump;
-        else if keyboard_check(vk_right) and !collision_rectangle( x + sprite_width, y + (sprite_height/2), x + sprite_width, y + (sprite_height/2), oWall, false, true )
+        else if keyboard_check(vk_right) //and !collision_rectangle( x + sprite_width, y + (sprite_height/2), x + sprite_width, y + (sprite_height/2), oWall, false, true )
             xSpeed = speedJump;
     }
     
     // Move left
     // If the player is pressing Left then they move left
-    else if keyboard_check(vk_left) and !collision_rectangle( x, y + (sprite_height/2), x, y + (sprite_height/2), oWall, false, true )
+    else if keyboard_check(vk_left) //and !collision_rectangle( x, y + (sprite_height/2), x, y + (sprite_height/2), oWall, false, true )
     {
-        xSpeed = -speedWalk;
-        ySpeed = 0;
-        // Change the animation to the walking left animation and speed it up
-        sprite_index = sPlayerPersonWalkLeft;
-        image_speed = imageFast; 
+        if place_meeting(x - speedWalk, y, oWall)
+        {
+            x = other.x + 1;
+            xSpeed = 0;
+            
+            if bumpDelay &gt; 0
+            {
+                bumpDelay -= 1;
+            }
+            else
+            {
+                audio_play_sound(sndBump, 10, false);
+                bumpDelay = bumpDelayMax;
+            }
+        }
+        else
+        {
+            xSpeed = -speedWalk;
+            ySpeed = 0;
+            // Change the animation and speed it up
+            sprite_index = sPlayerPersonWalkLeft;
+            image_speed = imageFast; 
+        }
     }
     
     // Move Right
     // If the player is pressing Right then they move right
-    else if keyboard_check(vk_right) and !collision_rectangle( x + sprite_width, y + (sprite_height/2), x + sprite_width, y + (sprite_height/2), oWall, false, true )
+    else if keyboard_check(vk_right) //and !collision_rectangle( x + sprite_width, y + (sprite_height/2), x + sprite_width, y + (sprite_height/2), oWall, false, true )
     {
-        xSpeed = speedWalk;
-        ySpeed = 0;
-        // Change the animation to the walking right animation and speed it up
-        sprite_index = sPlayerPersonWalkRight;
-        image_speed = imageFast;
+        if place_meeting(x + speedWalk, y, oWall)
+        {
+            x = other.x - 1;
+            xSpeed = 0;
+            
+            if bumpDelay &gt; 0
+            {
+                bumpDelay -= 1;
+            }
+            else
+            {
+                audio_play_sound(sndBump, 10, false);
+                bumpDelay = bumpDelayMax;
+            }
+        }
+        else
+        {
+            xSpeed = +speedWalk;
+            ySpeed = 0;
+            // Change the animation and speed it up
+            sprite_index = sPlayerPersonWalkRight;
+            image_speed = imageFast; 
+        }
     }
     
     // If the player presses nothing then they stay still.
@@ -149,6 +185,19 @@ else if (ySpeed &lt; 16)
     // Change the animation to the falling animation and speed it up
     sprite_index = sPlayerPersonWalkUp;
     image_speed = imageFast;
+    
+    if place_meeting(x - xSpeed, y, oWall )
+    {
+        x = other.x + 1;
+        xSpeed = speedSlow
+        ySpeed = 0;
+    }
+    if place_meeting(x + xSpeed, y, oWall )
+    {
+        x = other.x - 1;
+        xSpeed = -speedSlow
+        ySpeed = 0;
+    }
 }
 
 // Once the player's input and falling status are determined, move the player horizontally and vertically a distance equal to the player's velocity.
