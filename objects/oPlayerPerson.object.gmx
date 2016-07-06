@@ -33,7 +33,7 @@ image_speed = 0.1;
 firingDelay = 0;
 firingDelayMax = 10;
 bumpDelay = 0;
-bumpDelayMax = 6;
+bumpDelayMax = 25;
 
 speedWalk = 6.25; //6.25
 speedJump = 9.5; //9.5
@@ -76,17 +76,7 @@ otherSpeed = 0;
 
 // Collision
 
-// If the player is hit by a floozle, then they are bounced around.
-if bumpDelay == 0
-{
-    if place_meeting(x, y, oEnemy)
-    {
-        ySpeed = -10;
-        xSpeed = otherSpeed * 3;
-        bumpDelay = bumpDelayMax;
-    }
-}
-else if bumpDelay &gt; 0
+if bumpDelay &gt; 0
 {
     bumpDelay -= 1;
 }
@@ -107,6 +97,17 @@ if collision_point( x + sprite_width/2, y + sprite_height + ySpeed + fallSpeed, 
 if collision_point( x + sprite_width/2, y + sprite_height, oWall, false, true )
 {
     y -= (y + sprite_height)%32;
+}
+
+// If the player is hit by a floozle, then they are bounced around.
+if place_meeting(x, y, oEnemy)
+{
+    if bumpDelay == 0
+    {
+        ySpeed = -10;
+        xSpeed = otherSpeed * 3;
+        bumpDelay = bumpDelayMax; audio_play_sound (sndHurt, 1, false);
+    }
 }
 
 // If the player has ground beneath their feet, then they can use controls.
@@ -259,7 +260,6 @@ else
           <argument>
             <kind>1</kind>
             <string>otherSpeed = other.hspeed;
-audio_play_sound (sndHurt, 1, false);
 </string>
           </argument>
         </arguments>
