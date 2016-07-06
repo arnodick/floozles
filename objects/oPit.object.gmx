@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>oRandroom</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,60 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>/// Level generation
-last = 0;
-blockCount = 0;
-emptyCount = 0;
-playerCreated = false;
-tileArray[0] = bTileR;
-tileArray[1] = bTileR;
-tileArray[2] = bTileR;
-//tileArray[0] = bTile0;
-//tileArray[1] = bTile1;
-//tileArray[2] = bTile2;
 
+event_inherited();
 
-for (i = 1; i &lt; 17; i += 1)
-{
-    rand = irandom(1);
-    // If no block is being created at this X coordinate, but a block was made one column to the left of this X coord, then put a single block tile one column back.
-    if rand == 0 and blockCount == 1
-    {
-        tile_add (bTile1Block, 0, 0, 192, 128, i * 64 - 128, 448, 1000000);
-    }
-    // If a block is beaing created at this X coordinate
-    else if rand == 1 and blockCount == 1
-    {
-        //tile_add (bTileL, 0, 0, 64, 64, i * 64 - 64, 512, 1000000);
-        tile_add (bTile2Block, 0, 0, 256, 128, i * 64 - 128, 448, 1000000);
-    }
-    if rand == 1 and blockCount &lt; 2
-    {
-        if playerCreated = false
-        {
-            instance_create (i * 64, 0, oPlayerPerson);
-            playerCreated = true;
-        }
-        instance_create (i * 64, 512, oWall);
-        blockCount += 1;
-        emptyCount = 0;
-    }
-    else if emptyCount &lt; 2
-    {
-        blockCount = 0;
-        emptyCount += 1;
-    }
-    else
-    {
-        instance_create (i * 64, 512, oWall);
-        blockCount = 1;
-        emptyCount = 0;
-        if playerCreated = false
-        {
-            instance_create (i * 64, 0, oPlayerPerson);
-            playerCreated = true;
-        }
-    }
-}
+scrLevelGen(tileAmount, c_red);
 </string>
           </argument>
         </arguments>

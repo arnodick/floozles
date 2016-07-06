@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp = 1;
+            <string>event_inherited();
+
+hp = 1;
 
 image_speed = 0.8;
 screenBottom = 1;

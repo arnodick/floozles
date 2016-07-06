@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// Attributes
 
+event_inherited();
+
 image_speed = 0.1;
 
 firingDelay = 0;
@@ -45,8 +47,17 @@ ySpeed = 0;
 xSpeed = 0;
 
 
-bumpOffset = sprite_width/4;
+bumpOffset = 8;
 otherSpeed = 0;
+
+/*
+//x + sprite_width/2, y + sprite_height + ySpeed
+draw_rectangle_colour(x + sprite_width/2 - 2, y + sprite_height + ySpeed - 2, x + sprite_width/2 + 2, y + sprite_height + ySpeed + 2, c_yellow, c_yellow, c_yellow, c_yellow, false);
+
+draw_rectangle_colour(x + sprite_width/2 - 2, y + sprite_height - sprite_height/4 - 2, x + sprite_width/2 + 2, y + sprite_height - sprite_height/4 + 2, c_red, c_red, c_red, c_red, false);
+draw_line_width_colour(x + sprite_width/2, y + sprite_height/2 + sprite_height/4, x + sprite_width/2 + xSpeed * 2, y + sprite_height/2 + sprite_height/4, 5, c_red, c_red);
+
+*/
 </string>
           </argument>
         </arguments>
@@ -94,11 +105,6 @@ if collision_point( x + sprite_width/2, y + sprite_height, oWall, false, true )
 // If the player is hit by a floozle, then they are bounced around.
 if place_meeting(x, y, oEnemy )
 {
-    /*
-    ySpeed = -10;
-    xSpeed += otherSpeed * 2;
-    audio_play_sound (sndHurt, 1, false);
-    */
     ySpeed = -10;
     audio_play_sound (sndHurt, 1, false);
     if otherSpeed &lt; 0
@@ -203,17 +209,10 @@ else if (ySpeed &lt; 20)
     }
 }    
 
-// Checks to the sides of the player to see if they will be inside a wall on this step or next step. If so they are placed to the right of the wall.
-if collision_line( x + sprite_width/2 + xSpeed, y, x + sprite_width/2 + xSpeed, y + sprite_height/2 + sprite_height/4, oWall, false, true )
+// Checks to the sides of the player for a wall. If it finds one, the player's horizontal direciton is reversed and lowered.
+if collision_line( x + sprite_width/2, y + sprite_height - sprite_height/4, x + sprite_width/2 + xSpeed * 2, y + sprite_height - sprite_height/4, oWall, false, true )
 {
-    x = other.x + bumpOffset;
-    xSpeed = 4;
-    // Second check to make sure player wasn't moved further inside a wall by the last block of code. If so, they are moved to the left of the wall.
-    if collision_line( x + sprite_width/2, y, x + sprite_width/2, y + sprite_height/2 + sprite_height/4, oWall, false, true )
-    {
-        x = other.x - bumpOffset - sprite_width/2;
-        xSpeed = -4;
-    }
+    xSpeed = -xSpeed / 2
     ySpeed = 0;
     audio_play_sound(sndBump, 10, false);
 }
@@ -263,6 +262,7 @@ else
             <kind>1</kind>
             <string>otherSpeed = other.hspeed;
 floor(otherSpeed);
+audio_play_sound(sndExplosion, 10, false);
 </string>
           </argument>
         </arguments>

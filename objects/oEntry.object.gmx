@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>oRandroom</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,19 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>/// Level generation
-last = 0;
-blockCount = 0;
-emptyCount = 0;
-rand = 0;
-playerCreated = false;
-tileAmount = (room_width - 64) / 64
 
-//tileArray[0] = bTile0;
-//tileArray[1] = bTile1;
-//tileArray[2] = bTile2;
+event_inherited();
 
-// Checks every incremement through 0 - 17 to either make a block at or leave blank the coordinate at i times 64.
-scrLevelGen(tileAmount);
+scrLevelGen(tileAmount, c_orange);
 </string>
           </argument>
         </arguments>

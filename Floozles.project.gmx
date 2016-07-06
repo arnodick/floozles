@@ -27,7 +27,7 @@
     <sprite>sprites\sPlayerShot1</sprite>
     <sprite>sprites\sExplode</sprite>
     <sprite>sprites\sCollisionBlock</sprite>
-    <sprite>sprites\sWall</sprite>
+    <sprite>sprites\sWallMoving</sprite>
     <sprite>sprites\sFM</sprite>
     <sprite>sprites\sFM2</sprite>
     <sprite>sprites\sWorm</sprite>
@@ -36,6 +36,7 @@
     <background>background\bgStarField</background>
     <background>background\bTile1Block</background>
     <background>background\bTile2Block</background>
+    <background>background\bTileLE</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -44,9 +45,7 @@
   <objects name="objects">
     <object>objects\oPerson</object>
     <object>objects\oNpcPerson</object>
-    <object>objects\oWorm</object>
     <object>objects\oPlayerPerson</object>
-    <object>objects\oPlayerPersonxx</object>
     <object>objects\oEnemy</object>
     <object>objects\oEnemyDisc</object>
     <object>objects\oFloozleLow</object>
@@ -56,13 +55,15 @@
     <object>objects\oPlayerShot</object>
     <object>objects\oPlayerShotTail</object>
     <object>objects\oExplode</object>
+    <object>objects\oRandroom</object>
     <object>objects\oEntry</object>
     <object>objects\oScroll</object>
     <object>objects\oPit</object>
+    <object>objects\otileset</object>
     <object>objects\oTut</object>
     <object>objects\oKing</object>
-    <object>objects\otileset</object>
     <object>objects\oWall</object>
+    <object>objects\oWallMoving</object>
     <object>objects\oFM</object>
     <object>objects\oFM2</object>
   </objects>
@@ -75,7 +76,7 @@
     <room>rooms\rKing</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41863.9767490393</constant>
+    <constant name="GM_build_date">41870.0669055787</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>

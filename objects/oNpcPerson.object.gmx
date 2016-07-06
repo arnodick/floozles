@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// NPC Atrributes
 
+event_inherited();
+
 vspeed = 2;
 image_speed = 0.1;
 imageFast = 0.2;
@@ -174,6 +176,8 @@ y += ySpeed;
           <argument>
             <kind>1</kind>
             <string>otherSpeed = other.hspeed;
+floor(otherSpeed);
+audio_play_sound(sndHurt, 10, false);
 </string>
           </argument>
         </arguments>
