@@ -74,7 +74,7 @@ for (i = 1; i < argument0; i += 1)
         {
             instance_create (i * 64, playerSpawnY, oNpcPerson);
         }
-        // If player is entering from middle, spawn them above one of 3 possible columns in the middle fo the map.
+        // If player is entering from middle, spawn them above one of 3 possible columns in the middle of the map.
         if i >= argument0/2 - 1 and argument2 == 2 and !instance_exists(oPlayerPerson)
         {
             instance_create (i * 64, 0, oPlayerPerson);

@@ -27,6 +27,10 @@
             <kind>1</kind>
             <string>event_inherited();
 hp = 5;
+instance_create(x + sprite_width / 2, y - sprite_height / 2, oFT);
+instance_create(x + sprite_width / 2, y - sprite_height / 2, oFjoint);
+rightLimit = x + sprite_width * 2;
+leftLimit = x - sprite_width;
 </string>
           </argument>
         </arguments>

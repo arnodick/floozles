@@ -34,6 +34,7 @@
     <sprite>sprites\sWorm</sprite>
     <sprite>sprites\sDoor</sprite>
     <sprite>sprites\sGun</sprite>
+    <sprite>sprites\sFT</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
@@ -75,6 +76,9 @@
     <object>objects\oFM2</object>
     <object>objects\oDoor</object>
     <object>objects\oGun</object>
+    <object>objects\oFT</object>
+    <object>objects\oFjoint</object>
+    <object>objects\oBall</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rKing</room>
@@ -87,7 +91,7 @@
     <room>rooms\rtiletest</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41907.0719183796</constant>
+    <constant name="GM_build_date">41911.1518273495</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>

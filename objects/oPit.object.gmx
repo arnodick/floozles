@@ -74,7 +74,9 @@ if instance_exists(oPlayerPerson) == true
 // Respawn the player at the top if they go off the map.
 if instance_exists(oPlayerPerson) == false
 {
-    room_restart();
+    global.level += 1;
+    global.exitSide = 2;
+    room_goto(rEntry);
 }
 
 </string>

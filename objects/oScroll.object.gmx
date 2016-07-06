@@ -82,33 +82,15 @@ if instance_exists(oPlayerPerson) == true
     {
         view_xview = room_width - view_wview - 64;
     }
-    
-    if global.exitSide = 0
+    if oPlayerPerson.x &gt; room_width - 64
     {
-        if oPlayerPerson.x &gt; room_width - 64
-        {
-            room_goto(rEntry);
-            global.exitSide = 1;
-        }
-        if oPlayerPerson.x &lt; 32
-        {
-            room_goto(rBullet);
-            global.exitSide = 0;
-        }
+        room_goto(rBullet);
+        global.exitSide = 1;
     }
-    
-    else if global.exitSide = 1
+    if oPlayerPerson.x &lt; 32
     {
-        if oPlayerPerson.x &gt; room_width - 64
-        {
-            room_goto(rBullet);
-            global.exitSide = 1;
-        }
-        if oPlayerPerson.x &lt; 32
-        {
-            room_goto(rEntry);
-            global.exitSide = 0;
-        }
+        room_goto(rEntry);
+        global.exitSide = 0;
     }
     /*
     if oPlayerPerson.x &lt; view_wview / 2 + 64
