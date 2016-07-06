@@ -60,8 +60,8 @@
     <object>objects\oFM2</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room3</room>
     <room>rooms\room4</room>
+    <room>rooms\room3</room>
     <room>rooms\rPit</room>
     <room>rooms\rTut</room>
     <room>rooms\rKing</room>
