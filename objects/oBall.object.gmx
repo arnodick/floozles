@@ -25,8 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed = 6;
-direction = 90;
+            <string>direction = 180;
+speed = 9;
+dir = speed/3.2;
 </string>
           </argument>
         </arguments>
@@ -49,7 +50,17 @@ direction = 90;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>direction -= 2;
+            <string>if direction == 270 and dir &gt; 0
+{
+    direction = direction - 180;
+    dir = -dir;
+}
+else if direction == 270 and dir &lt; 0
+{
+    direction = direction - 180;
+    dir = -dir;
+}
+direction += dir;
 </string>
           </argument>
         </arguments>

@@ -62,6 +62,7 @@
     <object>objects\oPlayerShotTail</object>
     <object>objects\oExplode</object>
     <object>objects\oRandroom</object>
+    <object>objects\oGame</object>
     <object>objects\oTut</object>
     <object>objects\oKing</object>
     <object>objects\oEntry</object>
@@ -79,19 +80,20 @@
     <object>objects\oFT</object>
     <object>objects\oFjoint</object>
     <object>objects\oBall</object>
+    <object>objects\oShoulder</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rPit</room>
     <room>rooms\rKing</room>
     <room>rooms\rEntry</room>
     <room>rooms\rScroll</room>
     <room>rooms\rScroll2</room>
-    <room>rooms\rPit</room>
     <room>rooms\rBullet</room>
     <room>rooms\rTut</room>
     <room>rooms\rtiletest</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41911.1518273495</constant>
+    <constant name="GM_build_date">41916.1012018171</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>

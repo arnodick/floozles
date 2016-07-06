@@ -139,7 +139,7 @@
     <instance objName="oWall" x="1088" y="1344" name="inst_01550AD9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1088" y="1408" name="inst_B18DAFCB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1088" y="1472" name="inst_420C3C91" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oFM2" x="416" y="1984" name="inst_FB8C7634" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oFM2" x="448" y="1984" name="inst_FB8C7634" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oFM" x="64" y="2176" name="inst_4FCC07AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oFM" x="320" y="2176" name="inst_C27ECCCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oFM" x="160" y="2176" name="inst_5597D8FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

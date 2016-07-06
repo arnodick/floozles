@@ -30,7 +30,6 @@
 event_inherited();
 
 scrLevelGen(tileAmount, c_orange, global.exitSide, false);
-
 </string>
           </argument>
         </arguments>
