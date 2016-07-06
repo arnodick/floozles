@@ -15,8 +15,8 @@
     <sound>sound\sndHurt</sound>
   </sounds>
   <sprites name="sprites">
+    <sprite>sprites\sPlayerPerson3</sprite>
     <sprite>sprites\sPlayerPerson</sprite>
-    <sprite>sprites\sNpcPerson</sprite>
     <sprite>sprites\sPlayerPersonCrouch</sprite>
     <sprite>sprites\sPlayerPersonFall</sprite>
     <sprite>sprites\sPlayerPersonWalkUp</sprite>
@@ -24,12 +24,21 @@
     <sprite>sprites\sPlayerPersonWalkDown</sprite>
     <sprite>sprites\sPlayerPersonWalkRight</sprite>
     <sprite>sprites\sPlayerPersonWalkLeft</sprite>
+    <sprite>sprites\sNpcPerson</sprite>
+    <sprite>sprites\sPlayerPersonCrouch2</sprite>
+    <sprite>sprites\sPlayerPersonFall2</sprite>
+    <sprite>sprites\sPlayerPersonWalkUp2</sprite>
+    <sprite>sprites\sPlayerPersonJumpCrouch2</sprite>
+    <sprite>sprites\sPlayerPersonWalkDown2</sprite>
+    <sprite>sprites\sPlayerPersonWalkRight2</sprite>
+    <sprite>sprites\sPlayerPersonWalkLeft2</sprite>
     <sprite>sprites\sEnemyDisc</sprite>
     <sprite>sprites\sEnemyPerson</sprite>
     <sprite>sprites\sPlayerShot</sprite>
     <sprite>sprites\sPlayerShot1</sprite>
     <sprite>sprites\sExplode</sprite>
     <sprite>sprites\sCollisionBlock</sprite>
+    <sprite>sprites\sWall2</sprite>
     <sprite>sprites\sWall</sprite>
     <sprite>sprites\sFM</sprite>
   </sprites>
@@ -56,8 +65,8 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\room5</room>
-    <room>rooms\room4</room>
     <room>rooms\rLevel1</room>
+    <room>rooms\room4</room>
     <room>rooms\room3</room>
     <room>rooms\room2</room>
     <room>rooms\room1</room>

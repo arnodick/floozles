@@ -51,22 +51,12 @@ count = 1;
             <kind>1</kind>
             <string>/// Game Settings
  
-   //Scroll view right
-//view_xview[0] += 1;
-
-//Scroll player right
 /*
-if instance_exists(oPlayerPerson)
-{
-    oPlayerPerson.x += 1;
-}
-*/
 if (random(20) &lt; 5)
 {
     instance_create (irandom(room_width), view_hview - 32, oEnemyDisc)
 }
-
-
+*/
 
 // Deactivate objects outside of the view
 //instance_deactivate_region(view_xview[0], 0, view_wview[0], room_height, false, true);

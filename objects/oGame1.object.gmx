@@ -51,23 +51,18 @@ count = 1;
             <kind>1</kind>
             <string>/// Game Settings
  
-   //Scroll view right
-//view_xview[0] += 1;
 
-//Scroll player right
-/*
-if instance_exists(oPlayerPerson)
+
+if (random(20) &lt; 5)
 {
-    oPlayerPerson.x += 1;
+    instance_create (irandom(room_width), room_height, oEnemyDisc)
 }
-*/
-
 
 // Deactivate objects outside of the view
 instance_deactivate_region(0, 0, room_width, room_height, false, true);
 instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
 
-// The view follows the player if they go off screen, but does not scroll.
+// The view follows the player if they go off the bottom of the screen, but does not scroll.
 if instance_exists(oPlayerPerson) == true
 {
     view_yview[0] = oPlayerPerson.y - oPlayerPerson.y%768;
