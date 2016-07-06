@@ -93,7 +93,7 @@ if collision_point( x + sprite_width/2, y + sprite_height, oWall, false, true )
 }
 
 // If the player is hit by a floozle, then they are bounced around.
-if place_meeting(x, y, oEnemy )
+if place_meeting(x, y, oFloozle )
 {
     if keyboard_check(vk_down)
     {
@@ -259,7 +259,7 @@ y += ySpeed;
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="oEnemy">
+    <event eventtype="4" ename="oFloozle">
       <action>
         <libid>1</libid>
         <id>603</id>

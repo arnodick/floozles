@@ -54,6 +54,7 @@
     <object>objects\oNpcPerson</object>
     <object>objects\oPlayerPerson</object>
     <object>objects\oEnemy</object>
+    <object>objects\oFloozle</object>
     <object>objects\oEnemyDisc</object>
     <object>objects\oFloozleLow</object>
     <object>objects\oFloozleHigh</object>
@@ -94,7 +95,7 @@
     <room>rooms\rtiletest</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41916.6628981944</constant>
+    <constant name="GM_build_date">41963.2196677083</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>

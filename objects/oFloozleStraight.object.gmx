@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>2</depth>
   <persistent>0</persistent>
-  <parentName>oEnemy</parentName>
+  <parentName>oFloozle</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp = 1;
+            <string>event_inherited();
 
 image_speed = 0.4;
 screenBottom = 1;
@@ -87,12 +87,7 @@ highfallSpeed = 3.4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (hp &lt; 1)
-{
-    instance_create(other.x, other.y, oExplode);
-    instance_create(x, y, oFloozleDead);
-    instance_destroy();
-}
+            <string>event_inherited();
 
 if y &lt; view_hview * 2 and screenBottom = 1
 {
