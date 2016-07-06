@@ -10,10 +10,17 @@
     <sound>sound\sndBump</sound>
     <sound>sound\sndJump5</sound>
     <sound>sound\sndLand</sound>
+    <sound>sound\sndFall</sound>
+    <sound>sound\sndJumpFar</sound>
+    <sound>sound\sndHurt</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sPlayerPerson</sprite>
+    <sprite>sprites\sNpcPerson</sprite>
+    <sprite>sprites\sPlayerPersonCrouch</sprite>
+    <sprite>sprites\sPlayerPersonFall</sprite>
     <sprite>sprites\sPlayerPersonWalkUp</sprite>
+    <sprite>sprites\sPlayerPersonJumpCrouch</sprite>
     <sprite>sprites\sPlayerPersonWalkDown</sprite>
     <sprite>sprites\sPlayerPersonWalkRight</sprite>
     <sprite>sprites\sPlayerPersonWalkLeft</sprite>
@@ -23,6 +30,7 @@
     <sprite>sprites\sPlayerShot1</sprite>
     <sprite>sprites\sExplode</sprite>
     <sprite>sprites\sCollisionBlock</sprite>
+    <sprite>sprites\sWall</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
@@ -30,6 +38,8 @@
   </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
+    <object>objects\oPerson</object>
+    <object>objects\oNpcPerson</object>
     <object>objects\oPlayerPerson</object>
     <object>objects\oEnemy</object>
     <object>objects\oEnemyDisc</object>
@@ -41,8 +51,10 @@
     <object>objects\oWall</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room3</room>
     <room>rooms\rLevel1</room>
     <room>rooms\room1</room>
+    <room>rooms\room2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

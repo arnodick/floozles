@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string> //Scroll view right
+            <string>/// Game Settings
+ 
+   //Scroll view right
 //view_xview[0] += 1;
 
 //Scroll player right
@@ -35,20 +37,45 @@ if instance_exists(oPlayerPerson)
     oPlayerPerson.x += 1;
 }
 */
-
 if (random(20) &lt; 5)
 {
-    instance_create (random(639), 479, oEnemyDisc)
+    instance_create (random(1024), 2303, oEnemyDisc)
 }
 
+
+
 // Deactivate objects outside of the view
-instance_deactivate_region(view_xview[0], 0, view_wview[0], room_height, false, true);
+//instance_deactivate_region(view_xview[0], 0, view_wview[0], room_height, false, true);
+instance_deactivate_region(0, 0, room_width, room_height, false, true);
 instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
 
-// Respawn the player when they go off the screen
-if (instance_exists(oPlayerPerson) ==  false)
+if instance_exists(oPlayerPerson) == true
 {
-    instance_create (125, 100, oPlayerPerson)
+    if oPlayerPerson.y &lt;= 768
+    {
+        view_visible[0] = true;
+        view_visible[1] = false;
+        view_visible[2] = false;
+    }
+    if oPlayerPerson.y &gt; 768
+    {
+        view_visible[0] = false;
+        view_visible[1] = true;
+        view_visible[2] = false;
+        //view_object[1] = oPlayerPerson;
+    }
+    if oPlayerPerson.y &gt; 1536
+    {
+        view_visible[0] = false;
+        view_visible[1] = false;
+        view_visible[2] = true;
+    }
+}
+
+// Respawn the player when they go off the map
+if instance_exists(oPlayerPerson) ==  false
+{
+    instance_create (480, 0, oPlayerPerson)
 }
 
 </string>

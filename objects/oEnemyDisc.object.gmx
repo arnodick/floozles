@@ -27,9 +27,24 @@
             <kind>1</kind>
             <string>hp = 1;
 image_speed = 0.4;
-gravity = 1.2;
-speed = 32;
-direction = random(90) + 45;
+//gravity = 1.2;
+//speed = 20;
+//direction = random(90) + 45;
+
+// Floozles don't reach above bridge. Can only hit you if you fall.
+temp = random(16) - 8;
+hspeed = temp;
+
+vspeed = -24;
+fallSpeed = 1;
+
+
+
+temp = random(16) - 8;
+hspeed = temp;
+
+vspeed = -26;
+fallSpeed = 0.8;
 </string>
           </argument>
         </arguments>
@@ -56,6 +71,11 @@ direction = random(90) + 45;
 {
     instance_create(other.x, other.y, oExplode);
     instance_destroy();
+}
+
+if y &lt; 768 and vspeed &lt;= 18
+{
+    vspeed += fallSpeed;
 }
 </string>
           </argument>

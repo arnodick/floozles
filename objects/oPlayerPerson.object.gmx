@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>3</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>oPerson</parentName>
   <maskName>sPlayerPerson</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -33,19 +33,24 @@ image_speed = 0.1;
 firingDelay = 0;
 firingDelayMax = 10;
 bumpDelay = 0;
-bumpDelayMax = 4;
+bumpDelayMax = 10;
 
-speedWalk = 6;
-speedJump = 10;
+speedWalk = 6.25; //6.25
+speedJump = 9.5; //9.5
 speedSlow = 1;
+fallSpeed = 2;
 
-imageFast = 0.3;
+imageFast = 0.2;
+//imageSlow = 0.05;
 
 jumpCount = 0;
 ySpeed = 0;
 xSpeed = 0;
 
-fallSpeed = 2;
+
+bumpOffset = 8;
+
+otherSpeed = 0;
 </string>
           </argument>
         </arguments>
@@ -72,8 +77,24 @@ fallSpeed = 2;
 
 // Collision
 
+// Checks to the sides of the player to see if they will be inside a wall on this step or next step. If so they are placed to the right of the wall.
+if collision_line( x + sprite_width/2, y, x + sprite_width/2, y + sprite_height/2 + sprite_height/4, oWall, false, true ) or collision_line( x + sprite_width/2 + xSpeed, y, x + sprite_width/2 + xSpeed, y + sprite_height/2 + sprite_height/4, oWall, false, true )
+{
+    x = other.x + bumpOffset;
+    xSpeed = 4;
+    ySpeed = 0;
+    audio_play_sound(sndBump, 10, false);
+}
+// Second check to make sure player wasn't moved further inside a wall by the last block of code. If so, they are moved to the left of the wall.
+if collision_line( x + sprite_width/2, y, x + sprite_width/2, y + sprite_height/2 + sprite_height/4, oWall, false, true )
+{
+    x = other.x - bumpOffset - sprite_width/2;
+    xSpeed = -4;
+    ySpeed = 0;
+}
+
 // Checks where the player will be next step, given their falling speed and acceleration, and if they will be inside a wall below them then they are placed on top of the wall instead.
-if collision_point( x + sprite_width/2, y + sprite_height + ySpeed + fallSpeed, oWall, false, true )
+if collision_point( x + sprite_width/2, y + sprite_height + ySpeed + fallSpeed, oWall, false, true ) and ySpeed &gt; 0
 {
     y += (y + sprite_height)%32;
     // If the player just hit the ground this step, then play the landing sound effect.
@@ -90,31 +111,28 @@ if collision_point( x + sprite_width/2, y + sprite_height, oWall, false, true )
     y -= (y + sprite_height)%32;
 }
 
-// Checks to the sides of the player to see if they will be inside a wall next turn. If so they are placed to the side of the wall.
-if collision_line( x, y + sprite_height/2, x + sprite_width, y + sprite_height/2, oWall, false, true )
+if place_meeting(x, y, oEnemy)
 {
-    if xSpeed &lt; 0
-        x = other.x + sprite_width/2;
-    else if xSpeed &gt; 0
-        x = other.x - sprite_width/2;
-    audio_play_sound(sndBump, 10, false);
-    xSpeed = 0;
-    ySpeed = 0;
+    ySpeed = -10;
+    xSpeed = otherSpeed * 3;
+    // If the player is hit by a floozle, then they are bounced around.
+    /*
+    if bumpDelay == 0
+    {
+            ySpeed = -10;
+            xSpeed = otherSpeed * 3;
+           bumpDelay = bumpDelayMax;
+    }
+    else
+    {
+        bumpDelay -= 1;
+    }
+    */
 }
-
-/*
-if collision_point( x + sprite_width/2, y, oWall, false, true )
-{
-
-    x += (x + sprite_width)%32;
-    audio_play_sound(sndBump, 10, false);
-    xSpeed = 0;
-    ySpeed = 0;
-}
-*/
 
 // If the player has ground beneath their feet, then they can use controls.
-if collision_line ( x + sprite_width/2 - xSpeed, y + sprite_height + 1, x + sprite_width/2, y + sprite_height + 1, oWall, false, true )
+else if collision_line ( x + sprite_width/2 /*- xSpeed */, y + sprite_height + 1, x + sprite_width/2, y + sprite_height + 1, oWall, false, true )
+    // The -xSpeed code is the cause of the falling through wall edges glitch, but it also seems to make the controls more responsive when edge jumping. ACtually no, it doens't seem to change responsiveness.
 {
     // Jump
     // If the pleyer presses Up then they start moving upwards
@@ -122,18 +140,28 @@ if collision_line ( x + sprite_width/2 - xSpeed, y + sprite_height + 1, x + spri
     {
         ySpeed = -18;
         jumpCount = 1;
-        audio_play_sound(sndJump5, 1, false);
     
         // If the player is pressing Left or Right when they jump, then their horizontal velocity is set to match the direction they're pressing.
-        if keyboard_check(vk_left) and !collision_rectangle( x - speedJump, y + (sprite_height/2) + ySpeed, x - speedJump, y + (sprite_height/2) + ySpeed, oWall, false, true )
+        if keyboard_check(vk_left) and !collision_line( x, y + sprite_height/2 + ySpeed, x, y + sprite_height*2 + ySpeed, oWall, false, true )
+        {
             xSpeed = -speedJump;
-        else if keyboard_check(vk_right) and !collision_rectangle( x + sprite_width + speedJump , y + (sprite_height/2) + ySpeed, x + sprite_width + speedJump, y + (sprite_height/2) + ySpeed, oWall, false, true )
+            audio_play_sound(sndJumpFar, 1, false);
+        }
+        else if keyboard_check(vk_right) and !collision_line( x + sprite_width, y + sprite_height/2 + ySpeed, x + sprite_width, y + sprite_height*2 + ySpeed, oWall, false, true )
+        {
             xSpeed = speedJump;
+            audio_play_sound(sndJumpFar, 1, false);
+        }
+        else
+        {
+            audio_play_sound(sndJump5, 1, false);
+        }
     }
     
     // Move left
     // If the player is pressing Left then they move left
-    else if keyboard_check(vk_left) and !collision_rectangle( x - speedWalk, y + (sprite_height/2), x - speedWalk, y + (sprite_height/2), oWall, false, true )
+    // else if keyboard_check(vk_left) and !collision_rectangle( x - speedWalk, y + (sprite_height/2), x - speedWalk, y + (sprite_height/2), oWall, false, true )
+    else if keyboard_check(vk_left) and !collision_rectangle( x + sprite_width/4, y + (sprite_height/2), x + sprite_width/4, y + (sprite_height/2), oWall, false, true )
     {
         xSpeed = -speedWalk;
         ySpeed = 0;
@@ -144,7 +172,7 @@ if collision_line ( x + sprite_width/2 - xSpeed, y + sprite_height + 1, x + spri
     
     // Move Right
     // If the player is pressing Right then they move right
-    else if keyboard_check(vk_right) and !collision_rectangle( x + sprite_width  + speedWalk, y + (sprite_height/2), x + sprite_width + speedWalk, y + (sprite_height/2), oWall, false, true )
+    else if keyboard_check(vk_right) and !collision_rectangle( x + sprite_width - sprite_width/4, y + (sprite_height/2), x + sprite_width  - sprite_width/4, y + (sprite_height/2), oWall, false, true )
     {
         xSpeed = +speedWalk;
         ySpeed = 0;
@@ -162,8 +190,17 @@ if collision_line ( x + sprite_width/2 - xSpeed, y + sprite_height + 1, x + spri
         sprite_index = sPlayerPerson;
         image_speed = 0.1;
     }
+    
+    // If the player is near an edge they crouch.
+    if  (   !collision_line(x - speedWalk,                 y + sprite_height/2 + ySpeed, x - speedWalk,                y + sprite_height*2 + ySpeed, oWall, false, true ) or
+            !collision_line(x + sprite_width + speedWalk,  y + sprite_height/2 + ySpeed, x + sprite_width + speedWalk, y + sprite_height*2 + ySpeed, oWall, false, true ) ) and 
+            collision_point ( x + sprite_width/2, y + sprite_height, oWall, false, true )
+    {
+        sprite_index = sPlayerPersonCrouch;
+    }
 
 }
+
 
 // If the player does not have any ground under their feet then they start falling
 else if (ySpeed &lt; 16)
@@ -174,22 +211,20 @@ else if (ySpeed &lt; 16)
     // Change the animation to the falling animation and speed it up
     sprite_index = sPlayerPersonWalkUp;
     image_speed = imageFast;
-    
-/*
-    if place_meeting(x - xSpeed, y, oWall )
+    /*
+    This code causes a weird minor bug where the animation only plays 1 frame because the image index set earlier in the if statement (sPlayerPersonWalkUp) only has 1 frame. Creating a secondframe, identical to the first, in sPlayerPersonWalkUp solves this problem, but seems a bit hacky.
+    if xSpeed == 10
     {
-        x = other.x + 1;
-        xSpeed = speedSlow
-        ySpeed = 0;
+        sprite_index = sPlayerPersonJumpCrouch;
+        image_speed = imageSlow;
     }
-    if place_meeting(x + xSpeed, y, oWall )
+    */
+    if ySpeed == 16
     {
-        x = other.x - 1;
-        xSpeed = -speedSlow
-        ySpeed = 0;
+        sprite_index = sPlayerPersonFall;
+        audio_play_sound (sndFall, 1, false);
     }
-*/
-}
+}    
 
 // Once the player's input and falling status are determined, move the player horizontally and vertically a distance equal to the player's velocity.
 x += xSpeed;
@@ -212,6 +247,30 @@ else
 {
     firingDelay = 0;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="oEnemy">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>otherSpeed = other.hspeed;
+audio_play_sound (sndHurt, 1, false);
 </string>
           </argument>
         </arguments>
