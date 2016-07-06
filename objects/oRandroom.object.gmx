@@ -32,6 +32,7 @@ emptyCount = 0;
 tileAmount = (room_width) / 64;
 playerExists = false;
 firstSpawn = true;
+playerSpawnY = 448;
 </string>
           </argument>
         </arguments>

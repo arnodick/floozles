@@ -41,6 +41,7 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scrLevelGen.gml</script>
+    <script>scripts\scrLevelGenR.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\oPerson</object>
@@ -76,7 +77,7 @@
     <room>rooms\rKing</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41870.0669055787</constant>
+    <constant name="GM_build_date">41870.7335547338</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>

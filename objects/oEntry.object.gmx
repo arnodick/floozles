@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>/// Level generation
+globalvar exitSide;
+exitSide = 0;
 
 event_inherited();
 
@@ -69,9 +71,15 @@ instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
 if instance_exists(oPlayerPerson) == true
 {
     view_yview[0] = oPlayerPerson.y - oPlayerPerson.y%768;
-    if oPlayerPerson.x &gt; room_width - 64
+    if oPlayerPerson.x &lt; 32
     {
         room_goto(rScroll);
+        exitSide = 0;
+    }
+    if oPlayerPerson.x &gt; room_width - 32
+    {
+        room_goto(rScroll);
+        exitSide = 1;
     }
 }
 

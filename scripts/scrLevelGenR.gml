@@ -1,5 +1,5 @@
-// Checks every incremement through 0 - 17 to either make a block at or leave blank the coordinate at i times 64.
-for (i = 1; i < argument0; i += 1)
+// Checks every 64 pixels and either make a block at or leave blank the coordinate at i times 64.
+for (i = argument0 - 2; i > 0; i -= 1)
 {
     rand = irandom(1);
     // If no block is being created at this X coordinate, but a block was made one column to the left of this X coord, then put a single block tile one column back.
@@ -15,15 +15,15 @@ for (i = 1; i < argument0; i += 1)
         }
         else
         {*/
-            tile_add (bTile1Block, 0, 0, 192, 128, i * 64 - 128, 448, 1000000);
-            tile_set_blend(tile_layer_find(1000000, i * 64 - 64, 480), argument1);
+            tile_add (bTile1Block, 0, 0, 192, 128, i * 64, 448, 1000000);
+            tile_set_blend(tile_layer_find(1000000, i * 64, 480), argument1);
         //}
     }
     // If a block is beaing created at this X coordinate
     else if rand == 1 and blockCount == 1
     {
         //tile_add (bTileL, 0, 0, 64, 64, i * 64 - 64, 512, 1000000);
-        tile_add (bTile2Block, 0, 0, 256, 128, i * 64 - 128, 448, 1000000);
+        tile_add (bTile2Block, 0, 0, 256, 128, i * 64 - 64, 448, 1000000);
         tile_set_blend(tile_layer_find(1000000, i * 64 - 64, 480), argument1);
     }
     

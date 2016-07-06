@@ -29,7 +29,14 @@
 
 event_inherited();
 
-scrLevelGen(tileAmount, c_blue);
+if exitSide = 0
+{
+    scrLevelGenR(tileAmount, c_blue);
+}
+else if exitSide = 1
+{
+    scrLevelGen(tileAmount, c_blue);
+}
 </string>
           </argument>
         </arguments>
@@ -83,9 +90,28 @@ if instance_exists(oPlayerPerson) == true
         view_xview = room_width - view_wview - 64;
     }
     
-    if oPlayerPerson.x &gt; room_width - 64
+    if exitSide = 0
     {
-        room_goto(rPit);
+        if oPlayerPerson.x &gt; room_width - 32
+        {
+            room_goto(rEntry);
+        }
+        if oPlayerPerson.x &lt; 32
+        {
+            room_goto(rPit);
+        }
+    }
+    
+    else if exitSide = 1
+    {
+        if oPlayerPerson.x &gt; room_width - 32
+        {
+            room_goto(rPit);
+        }
+        if oPlayerPerson.x &lt; 32
+        {
+            room_goto(rEntry);
+        }
     }
     /*
     if oPlayerPerson.x &lt; view_wview / 2 + 64
