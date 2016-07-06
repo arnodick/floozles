@@ -71,8 +71,9 @@ fallSpeed = 2;
             <string>/// Controls
 
 // Collision
-// Checks where the player will be next step, given their falling speed and acceleration, and if they will be inside a wall then they are placed on top of the wall instead.
-if collision_rectangle( x + sprite_width/2, y + sprite_height, x + sprite_width/2, y + sprite_height + ySpeed + fallSpeed, oWall, false, true )
+
+// Checks where the player will be next step, given their falling speed and acceleration, and if they will be inside a wall below them then they are placed on top of the wall instead.
+if collision_point( x + sprite_width/2, y + sprite_height + ySpeed + fallSpeed, oWall, false, true )
 {
     y += (y + sprite_height)%32;
     // If the player just hit the ground this step, then play the landing sound effect.
@@ -82,40 +83,38 @@ if collision_rectangle( x + sprite_width/2, y + sprite_height, x + sprite_width/
         jumpCount = 0;
     }
 }
-// Checks if the player is inside a wall on this step. If they are, then they are placed on top of the wall instead.
-if collision_rectangle( x + sprite_width/2, y + sprite_height, x + sprite_width/2, y + sprite_height, oWall, false, true )
+
+// Checks if the player is inside a wall below them on this step. If they are, then they are placed on top of the wall instead.
+if collision_point( x + sprite_width/2, y + sprite_height, oWall, false, true )
 {
     y -= (y + sprite_height)%32;
 }
 
+// Checks to the sides of the player to see if they will be inside a wall next turn. If so they are placed to the side of the wall.
+if collision_line( x, y + sprite_height/2, x + sprite_width, y + sprite_height/2, oWall, false, true ) and xSpeed &gt; 0
+{
+    if xSpeed &lt; 0
+        x = other.x + sprite_width/2;
+    else
+        x = other.x - sprite_width/2;
+    audio_play_sound(sndBump, 10, false);
+    xSpeed = 0;
+    ySpeed = 0;
+}
+
 /*
-if collision_rectangle( x + sprite_width/2, y + sprite_height, x + sprite_width/2, y + sprite_height, oWall, false, true )
+if collision_point( x + sprite_width/2, y, oWall, false, true )
 {
-    x -= x%32;
-}
 
-if collision_rectangle( x + sprite_width/2, y + sprite_height, x + sprite_width/2, y + sprite_height, oWall, false, true )
-{
-    x -= (x%32) - 32;
-}
-
-
-
-if collision_rectangle( x + sprite_width/2, y + sprite_height/2, x + sprite_width/2, y + sprite_height/2, oWall, false, true )
-{
-    x -= x%32;
-}
-
-if collision_rectangle( x + sprite_width/2 + xSpeed, y + sprite_height/2, x + sprite_width/2 + xSpeed, y + sprite_height/2, oWall, false, true )
-{
-    x += x%32 - sprite_width;
+    x += (x + sprite_width)%32;
+    audio_play_sound(sndBump, 10, false);
+    xSpeed = 0;
+    ySpeed = 0;
 }
 */
 
-
-
 // If the player has ground beneath their feet, then they can use controls.
-if collision_rectangle( x - xSpeed, y + sprite_height + 1, x + sprite_width - xSpeed, y + sprite_height + 1, oWall, false, true )
+if collision_line ( x + sprite_width/2 - xSpeed, y + sprite_height + 1, x + sprite_width/2, y + sprite_height + 1, oWall, false, true )
 {
     // Jump
     // If the pleyer presses Up then they start moving upwards

@@ -54,7 +54,7 @@
     <instance objName="oWall" x="288" y="352" name="inst_FD4D0A07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="544" y="320" name="inst_F7225CE2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGame" x="0" y="0" name="inst_C3D78FD3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oPlayerPerson" x="288" y="160" name="inst_491F0A88" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oPlayerPerson" x="288" y="0" name="inst_491F0A88" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="32" y="352" name="inst_0F5F5DB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="0" y="384" name="inst_47019D11" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="448" y="352" name="inst_835584FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
