@@ -95,9 +95,28 @@ if collision_point( x + sprite_width/2, y + sprite_height, oWall, false, true )
 // If the player is hit by a floozle, then they are bounced around.
 if place_meeting(x, y, oEnemy )
 {
-    ySpeed = -10;
+    if keyboard_check(vk_down)
+    {
+        ySpeed = 0;
+    }
+    else if keyboard_check(vk_up)
+    {
+        ySpeed = -20;
+    }
+    else
+    {
+        ySpeed = -10;
+    }
     audio_play_sound (sndHurt, 1, false);
-    if otherSpeed &lt; 0
+    if keyboard_check(vk_left)
+    {
+        xSpeed = -10;
+    }
+    else if keyboard_check(vk_right)
+    {
+        xSpeed = 10;
+    }
+    else if otherSpeed &lt; 0
     {
         xSpeed = -10;
     }

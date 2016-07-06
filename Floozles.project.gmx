@@ -38,8 +38,9 @@
   <backgrounds name="background">
     <background>background\bgStarField</background>
     <background>background\bTile1Block</background>
+    <background>background\background5</background>
     <background>background\bTile2Block</background>
-    <background>background\background4</background>
+    <background>background\background6</background>
     <background>background\bTileLE</background>
   </backgrounds>
   <paths name="paths"/>
@@ -63,7 +64,9 @@
     <object>objects\oTut</object>
     <object>objects\oKing</object>
     <object>objects\oEntry</object>
+    <object>objects\oBullet</object>
     <object>objects\oScroll</object>
+    <object>objects\oScroll2</object>
     <object>objects\oPit</object>
     <object>objects\otileset</object>
     <object>objects\oWall</object>
@@ -77,13 +80,14 @@
     <room>rooms\rKing</room>
     <room>rooms\rEntry</room>
     <room>rooms\rScroll</room>
+    <room>rooms\rScroll2</room>
     <room>rooms\rPit</room>
     <room>rooms\rBullet</room>
     <room>rooms\rTut</room>
     <room>rooms\rtiletest</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41904.1315431944</constant>
+    <constant name="GM_build_date">41907.0719183796</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>

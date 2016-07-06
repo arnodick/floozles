@@ -48,12 +48,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>if (hp &lt; 1)
+{
+    instance_create(other.x, other.y, oExplode);
+    instance_create(x, y, oFloozleDead);
+    instance_destroy();
+}
+</string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="oPerson">
+    <event eventtype="4" ename="oPlayerShot">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -70,8 +76,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Kill Switch
-hp = 0;
+            <string>hp -= 1;
 </string>
           </argument>
         </arguments>
