@@ -25,7 +25,59 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Variables
+            <string>/// Level generation
+last = 0;
+blockCount = 0;
+emptyCount = 0;
+playerCreated = false;
+
+
+for (i = 1; i &lt; 17; i += 1)
+{
+    /*
+    if i == 8
+    {
+        blockCount = 0;
+        emptyCount += 1;
+    }
+    else if i == 9
+    {
+        instance_create (i * 64, 544, oWall);
+        tile_add (bTile, 0, 0, 64, 64, i * 64, 544, 1000000);
+        blockCount += 1;
+        emptyCount = 0;
+    }
+    else */
+    if irandom(1) == 1 and blockCount &lt; 2
+    {
+        if playerCreated = false
+        {
+            instance_create (i * 64, 0, oPlayerPerson);
+            playerCreated = true;
+        }
+        instance_create (i * 64, 544, oWall);
+        tile_add (bTile, 0, 0, 64, 64, i * 64, 544, 1000000);
+        blockCount += 1;
+        emptyCount = 0;
+    }
+    else if emptyCount &lt; 2
+    {
+        blockCount = 0;
+        emptyCount += 1;
+    }
+    else
+    {
+        instance_create (i * 64, 544, oWall);
+        tile_add (bTile, 0, 0, 64, 64, i * 64, 544, 1000000);
+        blockCount = 1;
+        emptyCount = 0;
+        if playerCreated = false
+        {
+            instance_create (i * 64, 0, oPlayerPerson);
+            playerCreated = true;
+        }
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -50,10 +102,12 @@
             <kind>1</kind>
             <string>/// Game Settings
 
+/*
 if (random(20) &lt; 8)
 {
     instance_create (irandom(room_width), room_height - 64, oEnemyDisc)
 }
+*/
 
 
 // Deactivate objects outside of the view

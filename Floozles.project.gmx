@@ -29,6 +29,8 @@
     <sprite>sprites\sCollisionBlock</sprite>
     <sprite>sprites\sWall</sprite>
     <sprite>sprites\sFM</sprite>
+    <sprite>sprites\sFM2</sprite>
+    <sprite>sprites\sWorm</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
@@ -38,10 +40,13 @@
   <objects name="objects">
     <object>objects\oPerson</object>
     <object>objects\oNpcPerson</object>
+    <object>objects\oWorm</object>
     <object>objects\oPlayerPerson</object>
     <object>objects\oPlayerPersonxx</object>
     <object>objects\oEnemy</object>
     <object>objects\oEnemyDisc</object>
+    <object>objects\oFloozleLow</object>
+    <object>objects\oFloozleHigh</object>
     <object>objects\oFloozleDead</object>
     <object>objects\oEnemyDiscStraight</object>
     <object>objects\oPlayerShot</object>
@@ -52,8 +57,11 @@
     <object>objects\oGame2</object>
     <object>objects\oWall</object>
     <object>objects\oFM</object>
+    <object>objects\oFM2</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room3</room>
+    <room>rooms\room4</room>
     <room>rooms\rPit</room>
     <room>rooms\rTut</room>
     <room>rooms\rKing</room>

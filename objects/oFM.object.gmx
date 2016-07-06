@@ -29,7 +29,8 @@
 if (random(40) &lt; 1)
 {
     //instance_create ((irandom(6) * 192) - 48, room_height, oEnemyDiscStraight);
-    instance_create (x + sprite_width/2, y, oEnemyDiscStraight);
+    //instance_create (x + sprite_width/2, y, oEnemyDiscStraight);
+    instance_create (x + sprite_width/2, y, oFloozleLow);
 }
 
 </string>

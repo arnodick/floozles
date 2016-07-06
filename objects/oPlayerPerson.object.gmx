@@ -92,7 +92,7 @@ if collision_point( x + sprite_width/2, y + sprite_height, oWall, false, true )
 }
 
 // If the player is hit by a floozle, then they are bounced around.
-if place_meeting(x, y, oEnemyDisc )
+if place_meeting(x, y, oEnemy )
 {
     /*
     ySpeed = -10;
@@ -203,7 +203,7 @@ else if (ySpeed &lt; 20)
 }    
 
 // Checks to the sides of the player to see if they will be inside a wall on this step or next step. If so they are placed to the right of the wall.
-if collision_line( x + sprite_width/2 + xSpeed, y + ySpeed, x + sprite_width/2 + xSpeed, y + sprite_height/2 + sprite_height/4 + ySpeed, oWall, false, true )
+if collision_line( x + sprite_width/2 + xSpeed, y, x + sprite_width/2 + xSpeed, y + sprite_height/2 + sprite_height/4, oWall, false, true )
 {
     x = other.x + bumpOffset;
     xSpeed = 4;
