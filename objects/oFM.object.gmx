@@ -25,11 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (random(20) &lt; 1)
+            <string>/*
+if (random(20) &lt; 1)
 {
     //instance_create ((irandom(6) * 192) - 48, room_height, oEnemyDiscStraight);
     instance_create (x, y, oEnemyDiscStraight);
 }
+*/
 </string>
           </argument>
         </arguments>

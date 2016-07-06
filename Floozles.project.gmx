@@ -21,11 +21,11 @@
     <sprite>sprites\sPlayerPersonJumpCrouch</sprite>
     <sprite>sprites\sNpcPerson</sprite>
     <sprite>sprites\sEnemyDisc</sprite>
-    <sprite>sprites\sEnemyPerson</sprite>
     <sprite>sprites\sPlayerShot</sprite>
     <sprite>sprites\sPlayerShot1</sprite>
     <sprite>sprites\sExplode</sprite>
     <sprite>sprites\sCollisionBlock</sprite>
+    <sprite>sprites\sWall</sprite>
     <sprite>sprites\sFM</sprite>
   </sprites>
   <backgrounds name="background">

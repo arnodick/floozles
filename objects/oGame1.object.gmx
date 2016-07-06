@@ -53,7 +53,7 @@ count = 1;
  
 
 
-if (random(20) &lt; 5)
+if (random(20) &lt; 8)
 {
     instance_create (irandom(room_width), room_height, oEnemyDisc)
 }
