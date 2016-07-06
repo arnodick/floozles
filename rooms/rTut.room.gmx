@@ -328,6 +328,8 @@
     <instance objName="oWall" x="512" y="256" name="inst_DA6AC4C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="544" y="256" name="inst_70FF6C17" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="544" y="288" name="inst_54B91AA7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNpcPerson" x="4512" y="288" name="inst_29377CDD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNpcPerson" x="4960" y="288" name="inst_E1DE2DF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bTile" x="0" y="320" w="64" h="64" xo="0" yo="0" id="10000244" name="inst_C002CC15" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
