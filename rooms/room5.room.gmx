@@ -590,6 +590,14 @@
     <instance objName="oWall" x="1120" y="160" name="inst_2C1EC77B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1120" y="128" name="inst_9F5A5F8A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1120" y="96" name="inst_88E3CB51" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNpcPerson" x="448" y="1184" name="inst_EF0A531C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNpcPerson" x="672" y="1184" name="inst_57C3A237" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNpcPerson" x="256" y="1184" name="inst_06F0908B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNpcPerson" x="768" y="1184" name="inst_9C139790" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNpcPerson" x="1024" y="1184" name="inst_94845F29" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNpcPerson" x="64" y="1184" name="inst_26BD70AA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNpcPerson" x="192" y="1184" name="inst_223BC773" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNpcPerson" x="416" y="1184" name="inst_E05520B4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bTile" x="0" y="320" w="64" h="64" xo="0" yo="0" id="10000244" name="inst_C002CC15" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

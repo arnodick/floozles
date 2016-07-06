@@ -39,6 +39,8 @@ bumpOffset = 8;
 
 ySpeed = 0;
 xSpeed = speedWalk;
+
+otherSpeed = 0;
 </string>
           </argument>
         </arguments>
