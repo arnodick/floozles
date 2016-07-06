@@ -29,6 +29,7 @@
     <sprite>sprites\sCollisionBlock</sprite>
     <sprite>sprites\sWallMoving</sprite>
     <sprite>sprites\sFM</sprite>
+    <sprite>sprites\sFMDead</sprite>
     <sprite>sprites\sFM2</sprite>
     <sprite>sprites\sFM3</sprite>
     <sprite>sprites\sWorm</sprite>
@@ -57,7 +58,7 @@
     <object>objects\oFloozleLow</object>
     <object>objects\oFloozleHigh</object>
     <object>objects\oFloozleDead</object>
-    <object>objects\oEnemyDiscStraight</object>
+    <object>objects\oFloozleStraight</object>
     <object>objects\oPlayerShot</object>
     <object>objects\oPlayerShotTail</object>
     <object>objects\oExplode</object>
@@ -93,7 +94,7 @@
     <room>rooms\rtiletest</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41916.1012018171</constant>
+    <constant name="GM_build_date">41916.6628981944</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>

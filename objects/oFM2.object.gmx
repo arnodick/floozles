@@ -64,6 +64,10 @@ if (random(40) &lt; 1)
     instance_create (x + sprite_width/2, y, oFloozleHigh);
 }
 */
+if hp == 0
+{
+    
+}
 </string>
           </argument>
         </arguments>

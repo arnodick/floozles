@@ -231,8 +231,8 @@ x += xSpeed;
 y += ySpeed;
 
 // Shoot
-if global.haveGun == true
-{
+//if global.haveGun == true
+//{
     if !instance_exists(oGun)
     {
         instance_create(x, y, oGun);
@@ -253,7 +253,7 @@ if global.haveGun == true
     {
         firingDelay = 0;
     }
-}
+//}
 </string>
           </argument>
         </arguments>

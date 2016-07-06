@@ -54,7 +54,7 @@ maxSpeed = 8;
 {
     instance_destroy();
 }
-else if collision_rectangle(oShoulder.x - 128, oShoulder.y - 256, oShoulder.x + 128, oShoulder.y + 256, oPlayerPerson, false, false)
+else if instance_exists(oShoulder) and collision_rectangle(oShoulder.x - 128, oShoulder.y - 256, oShoulder.x + 128, oShoulder.y + 256, oPlayerPerson, false, false)
 {
     if oPlayerPerson.x &lt; x and hspeed &gt; -maxSpeed
     {

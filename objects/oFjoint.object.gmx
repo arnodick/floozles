@@ -48,8 +48,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = oShoulder.x + (oFT.x - oShoulder.x)/2;
-y = oFT.y - 128;
+            <string>if instance_exists(oFT) and instance_exists(oShoulder)
+{
+    x = oShoulder.x + (oFT.x - oShoulder.x)/2;
+    y = oFT.y - 128;
+}
 </string>
           </argument>
         </arguments>
@@ -73,8 +76,14 @@ y = oFT.y - 128;
           <argument>
             <kind>1</kind>
             <string>draw_set_colour(c_maroon);
-draw_line_width(x, y, oFT.x, oFT.y, 16);
-draw_line_width(x, y, oShoulder.x, oShoulder.y, 16);
+if instance_exists(oFT)
+{
+    draw_line_width(x, y, oFT.x, oFT.y, 16);
+}
+if instance_exists(oShoulder)
+{
+    draw_line_width(x, y, oShoulder.x, oShoulder.y, 16);
+}
 //draw_line(x, y, oFT.x, oFT.y)
 //draw_line(x, y, shoulderXpos, shoulderYpos)
 </string>
