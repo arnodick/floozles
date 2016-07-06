@@ -13,6 +13,7 @@
     <sound>sound\sndFall</sound>
     <sound>sound\sndJumpFar</sound>
     <sound>sound\sndHurt</sound>
+    <sound>sound\sndGetgun</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sPlayerPerson</sprite>
@@ -20,6 +21,7 @@
     <sprite>sprites\sPlayerPersonFall</sprite>
     <sprite>sprites\sPlayerPersonJumpCrouch</sprite>
     <sprite>sprites\sNpcPerson</sprite>
+    <sprite>sprites\sQueen</sprite>
     <sprite>sprites\sEnemyDisc</sprite>
     <sprite>sprites\sFloozle</sprite>
     <sprite>sprites\sFloozleDead</sprite>
@@ -36,6 +38,7 @@
     <sprite>sprites\sDoor</sprite>
     <sprite>sprites\sGun</sprite>
     <sprite>sprites\sFT</sprite>
+    <sprite>sprites\sThrone</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
@@ -49,9 +52,13 @@
   <scripts name="scripts">
     <script>scripts\scrLevelGen.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\font_8bit</font>
+  </fonts>
   <objects name="objects">
     <object>objects\oPerson</object>
     <object>objects\oNpcPerson</object>
+    <object>objects\oQueen</object>
     <object>objects\oPlayerPerson</object>
     <object>objects\oEnemy</object>
     <object>objects\oFloozle</object>
@@ -85,13 +92,13 @@
     <object>objects\oShoulder</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rPit</room>
+    <room>rooms\rTut</room>
     <room>rooms\rKing</room>
     <room>rooms\rEntry</room>
+    <room>rooms\rPit</room>
     <room>rooms\rScroll</room>
     <room>rooms\rScroll2</room>
     <room>rooms\rBullet</room>
-    <room>rooms\rTut</room>
     <room>rooms\rtiletest</room>
   </rooms>
   <constants number="2">

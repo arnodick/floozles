@@ -54,12 +54,10 @@ scrLevelGen(tileAmount, c_green, global.exitSide, false);
             <kind>1</kind>
             <string>/// Game Settings
 
-/*
-if (random(20) &lt; 8)
+if (random(20) &lt; 3)
 {
-    instance_create (irandom(room_width), room_height - 64, oEnemyDisc)
+    instance_create (irandom(room_width), view_hview - 32, oEnemyDisc)
 }
-*/
 
 // Deactivate objects outside of the view
 instance_deactivate_region(0, 0, room_width, room_height, false, true);

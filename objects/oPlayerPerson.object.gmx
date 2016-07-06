@@ -99,7 +99,7 @@ if place_meeting(x, y, oFloozle )
     {
         ySpeed = 0;
     }
-    else if keyboard_check(vk_up)
+    else if keyboard_check(vk_up) or keyboard_check('Z')
     {
         ySpeed = -20;
     }
@@ -131,7 +131,7 @@ else if collision_line ( x + sprite_width/2, y + sprite_height + 1, x + sprite_w
 {
     // Jump
     // If the pleyer presses Up then they start moving upwards
-    if keyboard_check_pressed(vk_up)
+    if keyboard_check_pressed(vk_up) or keyboard_check_pressed(ord('Z'))
     {
         ySpeed = -18;
         jumpCount = 1;
@@ -231,8 +231,8 @@ x += xSpeed;
 y += ySpeed;
 
 // Shoot
-//if global.haveGun == true
-//{
+if global.haveGun == true
+{
     if !instance_exists(oGun)
     {
         instance_create(x, y, oGun);
@@ -253,7 +253,7 @@ y += ySpeed;
     {
         firingDelay = 0;
     }
-//}
+}
 </string>
           </argument>
         </arguments>

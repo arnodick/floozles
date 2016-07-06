@@ -61,7 +61,7 @@
     <instance objName="oWall" x="1088" y="1920" name="inst_DA9A5B7B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1088" y="1536" name="inst_1239D205" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1088" y="2176" name="inst_59311B6D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oPit" x="128" y="0" name="inst_15B82C98" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oPit" x="64" y="0" name="inst_15B82C98" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1088" y="1856" name="inst_9B4B28FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="0" y="0" name="inst_ED09EA5A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="0" y="64" name="inst_ACCABCF4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

@@ -28,10 +28,12 @@
             <string>/// Level generation
 event_inherited();
 
+/*
 if !instance_exists(oGame)
 {
     instance_create(0, 0, oGame);
 }
+*/
 
 scrLevelGen(tileAmount, c_red, global.exitSide, false);
 </string>
@@ -80,8 +82,8 @@ if instance_exists(oPlayerPerson) == true
 if instance_exists(oPlayerPerson) == false
 {
     global.level += 1;
-    global.exitSide = 2;
-    room_goto(rEntry);
+    global.exitSide = 3;
+    room_goto(rKing);
 }
 
 </string>

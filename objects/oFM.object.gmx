@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>hp = 3;
 shotType = oFloozleHigh;
+chance = 1;
 </string>
           </argument>
         </arguments>
@@ -53,13 +54,14 @@ shotType = oFloozleHigh;
 {
     shotType = oFloozleStraight;
     sprite_index = sFMDead;
+    chance = 5;
 }
 else
 {
     shotType = oFloozleHigh;
 }
 
-if (random(20) &lt; 1)
+if (random(20) &lt; chance)
 {
     instance_create (x, y, shotType)
 }

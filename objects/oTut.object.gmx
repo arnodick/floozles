@@ -87,7 +87,7 @@ if instance_exists(oPlayerPerson) == true
 // Respawn the player when they go off the map
 if instance_exists(oPlayerPerson) == false
 {
-    instance_create (view_xview[0] + 32, view_yview[0] + 32, oPlayerPerson);
+    instance_create (view_xview[0] + 64, view_yview[0] + 32, oPlayerPerson);
 }
 
 

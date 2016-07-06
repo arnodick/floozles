@@ -92,6 +92,15 @@ else
         vspeed = 0;
     }
 }
+if collision_point( x, y, oPlayerPerson, false, true )
+{
+    with(oPlayerPerson)
+    {
+        //instance_destroy();
+        x = 540;
+        y = 10;
+    }
+}
 </string>
           </argument>
         </arguments>
