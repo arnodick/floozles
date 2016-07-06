@@ -34,16 +34,14 @@
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
-    <background>background\bTile0</background>
-    <background>background\bTile3</background>
-    <background>background\background9</background>
-    <background>background\bTile5</background>
+    <background>background\bTileR</background>
+    <background>background\bTileRE</background>
+    <background>background\bTileL</background>
     <background>background\bTile4</background>
-    <background>background\background11</background>
-    <background>background\background7</background>
-    <background>background\background12</background>
-    <background>background\background10</background>
-    <background>background\background8</background>
+    <background>background\bTileLE</background>
+    <background>background\bTileRET</background>
+    <background>background\bTileLT</background>
+    <background>background\bTileRT</background>
     <background>background\bTile1</background>
     <background>background\bTile2</background>
   </backgrounds>
@@ -66,17 +64,25 @@
     <object>objects\oGame</object>
     <object>objects\oGame1</object>
     <object>objects\oGame2</object>
+    <object>objects\oGame3</object>
     <object>objects\oGame4</object>
+    <object>objects\oGame5</object>
     <object>objects\oWall</object>
     <object>objects\oFM</object>
     <object>objects\oFM2</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rEntry</room>
+    <room>rooms\rScroll</room>
     <room>rooms\rPit</room>
-    <room>rooms\room3</room>
+    <room>rooms\rtiletest</room>
     <room>rooms\rTut</room>
     <room>rooms\rKing</room>
   </rooms>
+  <constants number="2">
+    <constant name="GM_build_date">41862.8914008218</constant>
+    <constant name="GM_version">'1.0.0.0'</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
