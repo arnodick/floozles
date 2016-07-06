@@ -166,7 +166,7 @@
     <instance objName="oWall" x="1088" y="608" name="inst_17836ACE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1088" y="640" name="inst_77AE64B2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1088" y="672" name="inst_496B92B1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGame1" x="0" y="0" name="inst_F8AE67E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oKing" x="0" y="0" name="inst_F8AE67E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="32" y="288" name="inst_FAD136C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="32" y="256" name="inst_6CA3D752" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="32" y="224" name="inst_FA377C2C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

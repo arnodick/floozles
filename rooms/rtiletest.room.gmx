@@ -145,7 +145,7 @@
     <instance objName="oWall" x="1088" y="1728" name="inst_57987D86" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1088" y="1792" name="inst_D327E05D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1088" y="1856" name="inst_9B4B28FB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGame4" x="96" y="64" name="inst_A36C6709" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="otileset" x="96" y="64" name="inst_A36C6709" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="0" y="64" name="inst_C374A970" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="0" y="0" name="inst_D2928343" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
@@ -165,13 +165,13 @@
     <tile bgName="&lt;undefined&gt;" x="896" y="2240" w="64" h="64" xo="0" yo="0" id="10000408" name="inst_12A85115" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="&lt;undefined&gt;" x="960" y="2240" w="64" h="64" xo="0" yo="0" id="10000409" name="inst_6985C821" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="&lt;undefined&gt;" x="1024" y="2240" w="64" h="64" xo="0" yo="0" id="10000410" name="inst_4D01356D" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bTileL" x="224" y="512" w="64" h="64" xo="0" yo="0" id="10000414" name="inst_9AA82BF3" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bTileR" x="288" y="512" w="64" h="64" xo="0" yo="0" id="10000425" name="inst_15550B19" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bTileRE" x="352" y="512" w="64" h="64" xo="0" yo="0" id="10000426" name="inst_BFD4365F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bTileLE" x="160" y="512" w="64" h="64" xo="0" yo="0" id="10000434" name="inst_4DF0569B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bTileLT" x="224" y="448" w="64" h="64" xo="0" yo="0" id="10000435" name="inst_0C6871DC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bTileRET" x="352" y="448" w="64" h="64" xo="0" yo="0" id="10000438" name="inst_071603AC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bTileRT" x="288" y="448" w="64" h="64" xo="0" yo="0" id="10000439" name="inst_A265572A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="&lt;undefined&gt;" x="224" y="512" w="64" h="64" xo="0" yo="0" id="10000414" name="inst_9AA82BF3" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="&lt;undefined&gt;" x="288" y="512" w="64" h="64" xo="0" yo="0" id="10000425" name="inst_15550B19" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="&lt;undefined&gt;" x="352" y="512" w="64" h="64" xo="0" yo="0" id="10000426" name="inst_BFD4365F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="&lt;undefined&gt;" x="160" y="512" w="64" h="64" xo="0" yo="0" id="10000434" name="inst_4DF0569B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="&lt;undefined&gt;" x="224" y="448" w="64" h="64" xo="0" yo="0" id="10000435" name="inst_0C6871DC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="&lt;undefined&gt;" x="352" y="448" w="64" h="64" xo="0" yo="0" id="10000438" name="inst_071603AC" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="&lt;undefined&gt;" x="288" y="448" w="64" h="64" xo="0" yo="0" id="10000439" name="inst_A265572A" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

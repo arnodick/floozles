@@ -320,7 +320,7 @@
     <instance objName="oWall" x="1568" y="320" name="inst_949ADA7E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1536" y="320" name="inst_812E1F41" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="1536" y="352" name="inst_F2BE9F7C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGame" x="0" y="0" name="inst_8190BD5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oTut" x="0" y="0" name="inst_8190BD5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="5120" y="320" name="inst_FE469ED1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="5120" y="352" name="inst_8649C5C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWall" x="5152" y="352" name="inst_75023C1A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

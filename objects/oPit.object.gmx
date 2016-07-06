@@ -29,45 +29,28 @@
 last = 0;
 blockCount = 0;
 emptyCount = 0;
-rand = 0;
 playerCreated = false;
-
 tileArray[0] = bTileR;
 tileArray[1] = bTileR;
 tileArray[2] = bTileR;
-
 //tileArray[0] = bTile0;
 //tileArray[1] = bTile1;
 //tileArray[2] = bTile2;
 
 
-// Checks every incremement through 0 - 64 to either make a block at or leave blank the coordinate at i times 64.
-for (i = 1; i &lt; 64; i += 1)
+for (i = 1; i &lt; 17; i += 1)
 {
     rand = irandom(1);
     // If no block is being created at this X coordinate, but a block was made one column to the left of this X coord, then put a single block tile one column back.
     if rand == 0 and blockCount == 1
     {
-        tile_add (bTileR, 0, 0, 64, 64, i * 64 - 64, 512, 1000000);
-        tile_set_blend(bTileR, c_white);
-        tile_add (bTileRE, 0, 0, 64, 64, i * 64, 512, 1000000);
-        tile_add (bTileRET, 0, 0, 64, 64, i * 64, 448, 1000000);
-        tile_add (bTileLE, 0, 0, 64, 64, i * 64 - 128, 512, 1000000);
-        tile_add (bTileLT, 0, 0, 64, 64, i * 64 - 64, 448, 1000000);
+        tile_add (bTile1Block, 0, 0, 192, 128, i * 64 - 128, 448, 1000000);
     }
     // If a block is beaing created at this X coordinate
     else if rand == 1 and blockCount == 1
     {
-        tile_add (bTileL, 0, 0, 64, 64, i * 64 - 64, 512, 1000000);
-        tile_add (bTileLE, 0, 0, 64, 64, i * 64 - 128, 512, 1000000);
-        tile_add (bTileLT, 0, 0, 64, 64, i * 64 - 64, 448, 1000000);
-    }
-    else if blockCount == 2
-    {
-        tile_add (bTileR, 0, 0, 64, 64, i * 64 - 64, 512, 1000000);
-        tile_add (bTileRE, 0, 0, 64, 64, i * 64, 512, 1000000);
-        tile_add (bTileRT, 0, 0, 64, 64, i * 64 - 64, 448, 1000000);
-        tile_add (bTileRET, 0, 0, 64, 64, i * 64, 448, 1000000);     
+        //tile_add (bTileL, 0, 0, 64, 64, i * 64 - 64, 512, 1000000);
+        tile_add (bTile2Block, 0, 0, 256, 128, i * 64 - 128, 448, 1000000);
     }
     if rand == 1 and blockCount &lt; 2
     {
@@ -88,10 +71,6 @@ for (i = 1; i &lt; 64; i += 1)
     else
     {
         instance_create (i * 64, 512, oWall);
-        //tile_add (bTileL, 0, 0, 64, 64, i * 64, 512, 1000000);
-        //tile_add (bTileLE, 0, 0, 64, 64, i * 64 - 64, 512, 1000000);
-        //tile_add (bTileLT, 0, 0, 64, 64, i * 64, 448, 1000000);
-        //tile_add (tileArray[irandom(2)], 0, 0, 64, 64, i * 64, 512, 1000000);
         blockCount = 1;
         emptyCount = 0;
         if playerCreated = false
@@ -125,44 +104,21 @@ for (i = 1; i &lt; 64; i += 1)
             <kind>1</kind>
             <string>/// Game Settings
 
-/*
+
 if (random(20) &lt; 8)
 {
     instance_create (irandom(room_width), room_height - 64, oEnemyDisc)
 }
-*/
+
 
 // Deactivate objects outside of the view
 instance_deactivate_region(0, 0, room_width, room_height, false, true);
 instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
 
-
 // The view follows the player if they go off the bottom of the screen, but does not scroll.
 if instance_exists(oPlayerPerson) == true
 {
     view_yview[0] = oPlayerPerson.y - oPlayerPerson.y%768;
-    if oPlayerPerson.x &lt; (view_wview / 2) + 64
-    {
-        view_xview = 64;
-    }
-    else
-    {
-        view_xview = oPlayerPerson.x - view_wview / 2;
-    }
-    /*
-    if oPlayerPerson.x &lt; view_wview / 2 + 64
-    {
-        view_xview[0] = 0;
-    }
-    if oPlayerPerson.x &lt; view_wview * 3 + 64
-    {
-        view_xview[0] = oPlayerPerson.x - view_xview / 2;
-    }
-    else
-    {
-        view_xview[0] = view_xview * 3;
-    }
-    */
 }
 
 // Respawn the player at the top if they go off the map.
@@ -170,6 +126,7 @@ if instance_exists(oPlayerPerson) == false
 {
     room_restart();
 }
+
 </string>
           </argument>
         </arguments>

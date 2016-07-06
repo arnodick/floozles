@@ -27,25 +27,20 @@
     <sprite>sprites\sPlayerShot1</sprite>
     <sprite>sprites\sExplode</sprite>
     <sprite>sprites\sCollisionBlock</sprite>
-    <sprite>sprites\sWall</sprite>
+    <sprite>sprites\sWallMoving</sprite>
     <sprite>sprites\sFM</sprite>
     <sprite>sprites\sFM2</sprite>
     <sprite>sprites\sWorm</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
-    <background>background\bTileR</background>
-    <background>background\bTileRE</background>
-    <background>background\bTileL</background>
-    <background>background\bTile4</background>
-    <background>background\bTileLE</background>
-    <background>background\bTileRET</background>
-    <background>background\bTileLT</background>
-    <background>background\bTileRT</background>
-    <background>background\bTile1</background>
-    <background>background\bTile2</background>
+    <background>background\bTile1Block</background>
+    <background>background\bTile2Block</background>
   </backgrounds>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\scrLevelGen.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\oPerson</object>
     <object>objects\oNpcPerson</object>
@@ -61,13 +56,14 @@
     <object>objects\oPlayerShot</object>
     <object>objects\oPlayerShotTail</object>
     <object>objects\oExplode</object>
-    <object>objects\oGame</object>
-    <object>objects\oGame1</object>
-    <object>objects\oGame2</object>
-    <object>objects\oGame3</object>
-    <object>objects\oGame4</object>
-    <object>objects\oGame5</object>
+    <object>objects\oEntry</object>
+    <object>objects\oScroll</object>
+    <object>objects\oPit</object>
+    <object>objects\oTut</object>
+    <object>objects\oKing</object>
+    <object>objects\otileset</object>
     <object>objects\oWall</object>
+    <object>objects\oWallMoving</object>
     <object>objects\oFM</object>
     <object>objects\oFM2</object>
   </objects>
@@ -80,7 +76,7 @@
     <room>rooms\rKing</room>
   </rooms>
   <constants number="2">
-    <constant name="GM_build_date">41862.8914008218</constant>
+    <constant name="GM_build_date">41864.0850072685</constant>
     <constant name="GM_version">'1.0.0.0'</constant>
   </constants>
   <help>
