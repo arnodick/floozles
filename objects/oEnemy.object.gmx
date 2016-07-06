@@ -77,6 +77,8 @@
           <argument>
             <kind>1</kind>
             <string>hp -= 1;
+draw_set_colour(c_yellow);
+alarm[2] = 10;
 </string>
           </argument>
         </arguments>

@@ -98,7 +98,7 @@ if collision_point( x, y, oPlayerPerson, false, true )
     {
         //instance_destroy();
         x = 540;
-        y = 10;
+        y = 50;
     }
 }
 </string>

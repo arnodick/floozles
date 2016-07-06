@@ -53,6 +53,10 @@ scrLevelGen(tileAmount, c_yellow, global.exitSide, false);
           <argument>
             <kind>1</kind>
             <string>/// Game Settings
+if keyboard_check_pressed(vk_escape)
+{
+    game_end();
+}
 
 // Deactivate objects outside of the view
 instance_deactivate_region(0, 0, room_width, room_height, false, true);
