@@ -6,7 +6,7 @@
   <depth>3</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
-  <maskName>&lt;undefined&gt;</maskName>
+  <maskName>sPlayerPerson</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
@@ -35,11 +35,17 @@ firingDelayMax = 10;
 bumpDelay = 0;
 bumpDelayMax = 4;
 
-speedUp = 6;
+speedWalk = 6;
 speedJump = 8;
+speedSlow = 1;
+
 imageFast = 0.3;
 
 jumpCount = 0;
+ySpeed = 0;
+xSpeed = 0;
+
+fallSpeed = 2;
 </string>
           </argument>
         </arguments>
@@ -64,136 +70,90 @@ jumpCount = 0;
             <kind>1</kind>
             <string>/// Controls
 
-if vspeed &lt; 3
+// Collision
+// Checks where the player will be next step, given their falling speed and acceleration, and if they will be inside a wall then they are placed on top of the wall instead.
+if collision_rectangle( x, y + sprite_height, x + sprite_width, y + sprite_height + ySpeed + fallSpeed, oWall, false, true )
 {
-    speedOffset = 2;
-}
-else
-{
-    speedOffset = 0;
-}
-
-// If the player is not pressing any buttons and they have ground beneath their feet, then they stop moving
-if place_meeting(x, y + vspeed + speedOffset, oWall)
-{
-    
-    y = other.y;
-    vspeed = 0;
-    hspeed = 0;
+    y += ((y + sprite_height)%32);
+    // If the player just hit the ground this step, then play the landing sound effect.
     if jumpCount == 1
     {
         audio_play_sound(sndLand, 10, false);
         jumpCount = 0;
     }
-    
-    sprite_index = sPlayerPerson;
-    image_speed = 0.1;
+}
+// Checks if the player is inside a wall on this step. If they are, then they are placed on top of the wall instead.
+if collision_rectangle( x, y + sprite_height, x + sprite_width, y + sprite_height, oWall, false, true )
+{
+    y -= ((y + sprite_height)%32);
+}
 
-
+// If the player has ground beneath their feet, then they can use controls.
+if collision_rectangle( x, y + sprite_height + 1, x + sprite_width, y + sprite_height + 1, oWall, false, true )
+{
     // Jump
-        // If the pleyer presses Up and has ground under their feet they start moving upwards
+    // If the pleyer presses Up then they start moving upwards
     if keyboard_check_pressed(vk_up)
     {
-        vspeed = -18;
-        jumpCount += 1;
-        audio_play_sound(sndJump5, 10, false);
+        ySpeed = -18;
+        jumpCount = 1;
+        audio_play_sound(sndJump5, 1, false);
     
-        if ( keyboard_check(vk_left) and !place_meeting(x - speedUp, y, oWall) )
-            hspeed = -speedJump;
-        else if ( keyboard_check(vk_right) and !place_meeting(x + speedUp, y, oWall) )
-            hspeed = speedJump;
+        // If the player is pressing Left or Right when they jump, then their horizontal velocity is set to match the direction they're pressing.
+        if keyboard_check(vk_left) and !collision_rectangle( x, y + (sprite_height/2), x, y + (sprite_height/2), oWall, false, true )
+            xSpeed = -speedJump;
+        else if keyboard_check(vk_right) and !collision_rectangle( x + sprite_width, y + (sprite_height/2), x + sprite_width, y + (sprite_height/2), oWall, false, true )
+            xSpeed = speedJump;
     }
     
     // Move left
-        // If the player is pressing Left and has ground under their feet then they do not fall
-    else if keyboard_check(vk_left)
+    // If the player is pressing Left then they move left
+    else if keyboard_check(vk_left) and !collision_rectangle( x, y + (sprite_height/2), x, y + (sprite_height/2), oWall, false, true )
     {
-        // If there is not a wall to the left of the player, move left
-        if place_meeting(x - speedUp, y, oWall)
-        {
-            x = other.x + 1;
-            hspeed = 0;
-            
-            if bumpDelay &gt; 0
-            {
-                bumpDelay -= 1;
-            }
-            else
-            {
-                audio_play_sound(sndBump, 10, false);
-                bumpDelay = bumpDelayMax;
-            }
-        }
-        else
-        {
-            hspeed = -speedUp;
-            // Change the animation and speed it up
-            sprite_index = sPlayerPersonWalkLeft;
-            image_speed = imageFast; 
-        }
+        xSpeed = -speedWalk;
+        ySpeed = 0;
+        // Change the animation to the walking left animation and speed it up
+        sprite_index = sPlayerPersonWalkLeft;
+        image_speed = imageFast; 
     }
     
     // Move Right
-        // If the player is pressing Right and has ground under their feet then they do not fall
-    else if keyboard_check(vk_right)
+    // If the player is pressing Right then they move right
+    else if keyboard_check(vk_right) and !collision_rectangle( x + sprite_width, y + (sprite_height/2), x + sprite_width, y + (sprite_height/2), oWall, false, true )
     {
-        // If there is not a wall to the right of the player, move right
-        if place_meeting(x + speedUp, y, oWall)
-        {
-            x = other.x - 1;
-            hspeed = 0;
-            
-            if bumpDelay &gt; 0
-            {
-                bumpDelay -= 1;
-            }
-            else
-            {
-                audio_play_sound(sndBump, 10, false);
-                bumpDelay = bumpDelayMax;
-            }
-        }
-        else
-        {
-            hspeed = speedUp;
-            // Change the animation and speed it up
-            sprite_index = sPlayerPersonWalkRight;
-            image_speed = imageFast;
-        }
+        xSpeed = speedWalk;
+        ySpeed = 0;
+        // Change the animation to the walking right animation and speed it up
+        sprite_index = sPlayerPersonWalkRight;
+        image_speed = imageFast;
+    }
+    
+    // If the player presses nothing then they stay still.
+    else
+    {
+        ySpeed = 0;
+        xSpeed = 0;
+        // Change the animation to the idle animation at a slow speed.
+        sprite_index = sPlayerPerson;
+        image_speed = 0.1;
     }
 
 }
 
 // If the player does not have any ground under their feet then they start falling
-else if (vspeed &lt; 16 and y != oWall.y)
+else if (ySpeed &lt; 16)
 {
-    vspeed += 2;
+    ySpeed += fallSpeed;
     jumpCount = 1;
     
-    // Change the animation and speed it up
+    // Change the animation to the falling animation and speed it up
     sprite_index = sPlayerPersonWalkUp;
     image_speed = imageFast;
-    
-
-    if ( place_meeting(x - speedUp, y, oWall ) )
-    {
-        x = other.x + 1;
-        hspeed = 0;
-    }
-    if ( place_meeting(x + speedUp, y, oWall ) )
-    {
-        x = other.x - 1;
-        hspeed = 0;
-    }
-
 }
 
-/*
-if keyboard_check_pressed(vk_up) speed = 2;
-if keyboard_check(vk_left) direction += 5;
-if keyboard_check(vk_right) direction -= 5;
-if keyboard_check_released(vk_up) speed = 0;
-*/
+// Once the player's input and falling status are determined, move the player horizontally and vertically a distance equal to the player's velocity.
+x += xSpeed;
+y += ySpeed;
 
 // Shoot
 if keyboard_check_pressed(ord('X'))
