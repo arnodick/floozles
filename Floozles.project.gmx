@@ -31,6 +31,7 @@
     <sprite>sprites\sExplode</sprite>
     <sprite>sprites\sCollisionBlock</sprite>
     <sprite>sprites\sWall</sprite>
+    <sprite>sprites\sFM</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\bgStarField</background>
@@ -43,18 +44,23 @@
     <object>objects\oPlayerPerson</object>
     <object>objects\oEnemy</object>
     <object>objects\oEnemyDisc</object>
+    <object>objects\oEnemyDiscStraight</object>
     <object>objects\oEnemyPerson</object>
     <object>objects\oPlayerShot</object>
     <object>objects\oPlayerShotTail</object>
     <object>objects\oExplode</object>
     <object>objects\oGame</object>
+    <object>objects\oGame1</object>
     <object>objects\oWall</object>
+    <object>objects\oFM</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room3</room>
+    <room>rooms\room5</room>
+    <room>rooms\room4</room>
     <room>rooms\rLevel1</room>
-    <room>rooms\room1</room>
+    <room>rooms\room3</room>
     <room>rooms\room2</room>
+    <room>rooms\room1</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

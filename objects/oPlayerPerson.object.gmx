@@ -78,7 +78,8 @@ otherSpeed = 0;
 // Collision
 
 // Checks to the sides of the player to see if they will be inside a wall on this step or next step. If so they are placed to the right of the wall.
-if collision_line( x + sprite_width/2, y, x + sprite_width/2, y + sprite_height/2 + sprite_height/4, oWall, false, true ) or collision_line( x + sprite_width/2 + xSpeed, y, x + sprite_width/2 + xSpeed, y + sprite_height/2 + sprite_height/4, oWall, false, true )
+// The predictive + xSpeed is causing the player to bounce against walls when walking.
+if collision_line( x + sprite_width/2, y, x + sprite_width/2, y + sprite_height/2 + sprite_height/4, oWall, false, true ) /* or collision_line( x + sprite_width/2 + xSpeed, y, x + sprite_width/2 + xSpeed, y + sprite_height/2 + sprite_height/4, oWall, false, true ) */
 {
     x = other.x + bumpOffset;
     xSpeed = 4;
@@ -142,12 +143,12 @@ else if collision_line ( x + sprite_width/2 /*- xSpeed */, y + sprite_height + 1
         jumpCount = 1;
     
         // If the player is pressing Left or Right when they jump, then their horizontal velocity is set to match the direction they're pressing.
-        if keyboard_check(vk_left) and !collision_line( x, y + sprite_height/2 + ySpeed, x, y + sprite_height*2 + ySpeed, oWall, false, true )
+        if keyboard_check(vk_left) and !collision_line( x - speedWalk, y + sprite_height/2 + ySpeed, x - speedWalk, y + sprite_height*2 + ySpeed, oWall, false, true )
         {
             xSpeed = -speedJump;
             audio_play_sound(sndJumpFar, 1, false);
         }
-        else if keyboard_check(vk_right) and !collision_line( x + sprite_width, y + sprite_height/2 + ySpeed, x + sprite_width, y + sprite_height*2 + ySpeed, oWall, false, true )
+        else if keyboard_check(vk_right) and !collision_line( x + sprite_width + speedWalk, y + sprite_height/2 + ySpeed, x + sprite_width + speedWalk, y + sprite_height*2 + ySpeed, oWall, false, true )
         {
             xSpeed = speedJump;
             audio_play_sound(sndJumpFar, 1, false);

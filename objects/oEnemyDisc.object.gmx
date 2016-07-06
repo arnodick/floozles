@@ -27,24 +27,43 @@
             <kind>1</kind>
             <string>hp = 1;
 image_speed = 0.4;
+screenBottom = 1;
+
 //gravity = 1.2;
 //speed = 20;
 //direction = random(90) + 45;
 
+/*
 // Floozles don't reach above bridge. Can only hit you if you fall.
 temp = random(16) - 8;
 hspeed = temp;
 
 vspeed = -24;
 fallSpeed = 1;
+*/
 
 
-
+// Floozles reach above the bridge, and high enough the you can't jump over them.
 temp = random(16) - 8;
 hspeed = temp;
 
 vspeed = -26;
+highvSpeed = -36;
+
 fallSpeed = 0.8;
+highfallSpeed = 1.6;
+
+/*
+// Pop up so that you can jump over them but not get under them.
+temp = random(16) - 8;
+hspeed = temp;
+
+vspeed = -25;
+highvSpeed = -50;
+
+fallSpeed = 0.8;
+highfallSpeed = 3.4;
+*/
 </string>
           </argument>
         </arguments>
@@ -73,7 +92,14 @@ fallSpeed = 0.8;
     instance_destroy();
 }
 
-if y &lt; 768 and vspeed &lt;= 18
+if y &lt; view_hview * 2 and screenBottom = 1
+{
+    vspeed = highvSpeed;
+    fallSpeed = highfallSpeed;
+    screenBottom = 0;
+}
+
+if  y &lt; view_hview * 2 and vspeed &lt;= 18
 {
     vspeed += fallSpeed;
 }

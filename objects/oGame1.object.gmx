@@ -61,43 +61,23 @@ if instance_exists(oPlayerPerson)
     oPlayerPerson.x += 1;
 }
 */
-if (random(20) &lt; 5)
-{
-    instance_create (irandom(room_width), view_hview - 32, oEnemyDisc)
-}
-
 
 
 // Deactivate objects outside of the view
-//instance_deactivate_region(view_xview[0], 0, view_wview[0], room_height, false, true);
 instance_deactivate_region(0, 0, room_width, room_height, false, true);
-//instance_deactivate_region(0, view_hview[0], view_wview[0] * 5, view_hview[0] * 3, true, true);
 instance_activate_region(view_xview[0], 0, view_wview[0], room_height, true);
 
+// The view follows the player if they go off screen, but does not scroll.
 if instance_exists(oPlayerPerson) == true
 {
-    if oPlayerPerson.x &gt; 1024
-    {
-        view_xview[0] = oPlayerPerson.x - oPlayerPerson.x%1024;
-    }
-    /*
-    if oPlayerPerson.x &gt;= 5104 and oPlayerPerson.y &gt; 768
-    {
-        view_yview[0] = oPlayerPerson.y - oPlayerPerson.y%768;
-    }
-    */
-    if oPlayerPerson.x &gt; 5120
-    {
-        room_goto(room5);
-    }
+    view_yview[0] = oPlayerPerson.y - oPlayerPerson.y%768;
 }
 
-// Respawn the player when they go off the map
+// Respawn the player at the top if they go off the map.
 if instance_exists(oPlayerPerson) == false
 {
-    instance_create (view_xview[0] + 32, view_yview[0] + 32, oPlayerPerson);
+    instance_create (64, 288, oPlayerPerson);
 }
-
 
 </string>
           </argument>
