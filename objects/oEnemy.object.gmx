@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>hp = 1;
+colour = c_red;
 </string>
           </argument>
         </arguments>
@@ -50,7 +51,11 @@
             <kind>1</kind>
             <string>if (hp &lt; 1)
 {
-    instance_create(other.x, other.y, oExplode);
+    for (a = 1; a &lt; 100; a++)
+    {
+        instance_create(other.x + random(sprite_width), other.y + random(sprite_height), oExplode);
+    }
+    audio_play_sound(sndMommahurt, 10, false);
     instance_create(x, y, oFloozleDead);
     instance_destroy();
 }
@@ -77,8 +82,12 @@
           <argument>
             <kind>1</kind>
             <string>hp -= 1;
-draw_set_colour(c_yellow);
-alarm[2] = 10;
+colour = c_blue;
+    for (a = 1; a &lt; 100; a++)
+    {
+        instance_create(other.x + random(sprite_width), other.y + random(sprite_height), oExplode);
+    }
+audio_play_sound(sndMommahurt, 10, false);
 </string>
           </argument>
         </arguments>

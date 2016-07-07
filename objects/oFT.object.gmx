@@ -97,8 +97,15 @@ if collision_point( x, y, oPlayerPerson, false, true )
     with(oPlayerPerson)
     {
         //instance_destroy();
-        x = 540;
-        y = 50;
+        if global.haveGun == true
+        {
+            x = 540;
+            y = 50;
+        }
+        else
+        {
+            room_goto(rBullet);
+        }
     }
 }
 </string>
